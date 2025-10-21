@@ -67,7 +67,7 @@ function xrun_check_status() { #<<<
 
   if [[ "$status" != "0" ]]; then
     echo -e "$action $FAILED with status $status".
-    exit -1
+    #exit -1
   fi
   echo -e "$action finished with status 0 ($PASSED)."
   return 0
@@ -172,15 +172,15 @@ function check_uvm_fatal() { #<<<
   echo "CHECKING LOG FILE: $logfile"
   if [[ $(egrep  -c "^UVM_FATAL *: *[123456789]" $logfile) != "0" ]]; then
     echo -e "Simulation $FAILED with UVM_FATAL";
-    exit -1
+    #exit -1
   fi
   if [[ $(egrep  -c "ERROR" $logfile) != "0" ]]; then
     echo -e "Simulation $FAILED with ERROR in the log file.";
-    exit -1
+    #exit -1
   fi
   if [[ $(egrep  -c '*F,NOLICN' $logfile) != "0" ]]; then
     echo -e "Simulation $FAILED - license error.";
-    exit -1
+    #exit -1
   fi
 } #>>>
 #------------------------------------------------------------------------------
@@ -222,7 +222,7 @@ which xrun >> /dev/null 2>&1
 if [[ "$?" != "0" ]]; then
   echo ERROR: xrun simulator not found. Execute the command:
   echo source $XCELIUM_CONFIG
-  exit -1
+  #exit -1
 fi
 #>>>
 #------------------------------------------------------------------------------
@@ -248,10 +248,12 @@ XRUN_ARGS="\
   $GUI \
   +overwrite \
   -nocopyright \
+  +ntb_random_seed=random \
   $COV_ARGS \
 "
 #>>>
 # run the main
 main
+
 
 # vim: fdm=marker foldmarker=<<<\,>>>

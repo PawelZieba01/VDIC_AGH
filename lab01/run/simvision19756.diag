@@ -1,0 +1,113 @@
+*** Message Type: info ***
+When: Tue Oct 21 02:50:51 CEST 2025
+SimVision started.
+Version: TOOL:  simvision(64)   24.09-s005
+User: pzieba
+Host: cadence30
+Platform: Linux/x86_64/3.10.0-1160.119.1.el7.x86_64
+Started: Tue Oct 21 02:50:51 CEST 2025
+Command: /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence30:60782 -64BIT -nocopyright
+Work Directory: /home/student/pzieba/VDIC/lab01/run
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:50:51 CEST 2025
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:50:54 CEST 2025
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:50:55 CEST 2025
+Connect to Simulator
+      Design: worklib.top:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:   xmsim(64)       24.09-s005
+        User: pzieba
+        Host: cadence30
+Time Started: Tue Oct 21 02:50:50 CEST 2025
+  Process ID: 19736
+   Directory: /home/student/pzieba/VDIC/lab01/run
+     Command: xrun -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright +ntb_random_seed=random -coverage all -covoverwrite -covfile xrun_covfile.txt +UVM_TESTNAME=lab01_example -l xrun_gui.log
+
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:50:56 CEST 2025
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:51:13 CEST 2025
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:52:38 CEST 2025
+Create source window: "Source Browser 1"
+ 
+*** Message Type: error ***
+When: Tue Oct 21 02:52:39 CEST 2025
+can't find -sourcefile property for handle "@public@c7"
+    while executing
+"dac::get $classH -sourcefile"
+    (object "::.srcBrowser0" method "::SrcBrowser::addDacPointers" body line 97)
+    invoked from within
+"addDacPointers $dacH"
+    (object "::.srcBrowser0" method "::SrcBrowser::_doGotoDefinition" body line 20)
+    invoked from within
+"_doGotoDefinition $dacH"
+    ("driver" arm line 28)
+    invoked from within
+"switch -- $direction {
+    driver - load {
+            set jumpEdge 0
+         if {$direction == "driver"} {
+              set jumpEdge 1
+     }
+      set tsSbr [sidebar access ..."
+    (object "::.srcBrowser0" method "::SrcBrowser::traceSignal" body line 3)
+    invoked from within
+"$srcb traceSignal driver $traceH"
+    (object "::windows" method "::Windows::showsource" body line 74)
+    invoked from within
+"# Compiled -- no source code available
+error "called a copy of a compiled script""
+    (procedure "util::doCause" line 1)
+    invoked from within
+"util::doCause $hndl -time $time -marker $itk_option(-markerprimary)"
+    (object "::.waveWindow0" method "::WaveWindow::_doGotoCause" body line 54)
+    invoked from within
+"_doGotoCause $cnode"
+    ("@goto-cause" arm line 2)
+    invoked from within
+"switch -glob -- $dclickpref {
+        @no-action {
+               # Do nothing
+       }
+            @goto-cause {
+                _doGotoCause $cnode
+            }
+           ..."
+    (object "::.waveWindow0" method "::WaveWindow::_moveCursor" body line 337)
+    invoked from within
+"::.waveWindow0 _moveCursor cursor 19 85 -double"
+    (in namespace inscope "::WaveWindow" script line 1)
+    invoked from within
+"namespace inscope ::WaveWindow {::.waveWindow0 _moveCursor cursor 19 85 -double}"
+    (command bound to event)
+ 
+*** Message Type: info ***
+When: Tue Oct 21 02:52:43 CEST 2025
+Delete source window: "Source Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 03:06:36 CEST 2025
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 03:06:37 CEST 2025
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Oct 21 03:06:40 CEST 2025
+SimVision Exit.
+ 

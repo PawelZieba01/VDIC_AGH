@@ -1,0 +1,124 @@
+
+#
+# Preferences
+#
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-sendToIndago-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set toolbar-Standard-Console {
+  usual
+  position -pos 1
+}
+preferences set toolbar-Search-Console {
+  usual
+  position -pos 2
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 730x500+261+33}] != ""} {
+    window geometry "Design Browser 1" 730x500+261+33
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::top 
+browser set \
+    -signalsort name
+browser yview see  simulator::top 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x1078+0+30}] != ""} {
+    window geometry "Waveform 1" 1920x1078+0+30
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	simulator::top.debug
+	} ]
+set id [waveform add -signals  {
+	simulator::top.clk
+	} ]
+set id [waveform add -signals  {
+	simulator::top.gen2drv_mb
+	} ]
+waveform format $id -trace reference
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -trace analogSampleAndHold
+waveform hierarchy collapse $id2
+set id [waveform add -signals  {
+	simulator::top.gen2sb_mb
+	} ]
+waveform format $id -trace reference
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -trace analogSampleAndHold
+waveform hierarchy collapse $id2
+set id [waveform add -signals  {
+	simulator::top.mon2sb_mb
+	} ]
+waveform format $id -trace reference
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -trace analogSampleAndHold
+waveform hierarchy expand $id2
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	simulator::top.prog
+	} ]
+set id [waveform add -signals  {
+	simulator::top.rst_n
+	} ]
+set id [waveform add -signals  {
+	simulator::top.sin
+	} ]
+set id [waveform add -signals  {
+	simulator::top.sout0
+	} ]
+set id [waveform add -signals  {
+	simulator::top.sout1
+	} ]
+
+waveform xview limits 1812385ns 1829238ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+261+564
+
+#
+# Layout selection
+#

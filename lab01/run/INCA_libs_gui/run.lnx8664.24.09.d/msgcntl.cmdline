@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+xmcmds
+xmnowarn XCLGNOPTM
+xmnowarn RNDXCELON
+xmnowarn DSEMEL
+xmnowarn DSEM2009
+xmnowarn CGDEFN
+xmnowarn SAWSTP
+xmnowarn BADPRF
+xmnowarn COVUTA

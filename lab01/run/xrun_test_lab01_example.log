@@ -1,0 +1,404 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 04:48:36 CEST
+xrun
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.svp
+		simple_uart_switch_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	+ntb_random_seed=random
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab01_example
+	-l xrun_test_lab01_example.log
+
+   User defined plus("+") options:
+	+ntb_random_seed=random
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
+file: ../tb/simple_uart_switch_tb.sv
+        static uart_transaction_t tr_finish = '{default:0};
+                                                        |
+xmvlog: *W,ENUMERR (../tb/simple_uart_switch_tb.sv,169|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+xmelab: *W,COVMLE: (/home/student/pzieba/VDIC/lab01/tb/simple_uart_switch_tb.sv:74):Toggle coverage disabled for object  'mem_table'  across all instances of the module/generate as its size '10240' is greater than the allowed limit '2^10'. You can change the allowed limit for toggle coverage of multi-dimensional objects using  [<max_bits_base2_exponent>] argument of -sv_mda option of set_toggle_scoring  CCF command. The valid values for this option are 10,12,14,16,18,20,22,24.
+        static uart_transaction_t tr_finish = '{default:0};
+                                                        |
+xmelab: *W,ENUMERR (../tb/simple_uart_switch_tb.sv,169|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+        $write("[%0t] [SB] %sGEN: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
+                                                                                                                |
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,671|112): Illegal width specifier in format ignored (%-0b).
+        $write("[%0t] [SB] %sMON: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
+                                                                                                                |
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,679|112): Illegal width specifier in format ignored (%-0b).
+	Building instance overlay tables: ..........
+xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions containing struct datatypes. For backward compatibility, use " set_backward_compat -no_struct " coverage configuration file command..
+.......... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		               Instances  Unique
+		Modules:               2       2
+		Registers:           124     125
+		Scalar wires:         10       -
+		Named events:          1       1
+		Always blocks:         3       3
+		Initial blocks:        7       7
+		Final blocks:          1       1
+		Parallel blocks:       1       1
+		Cont. assignments:     1       2
+		Pseudo assignments:    4       -
+		Assertions:            1       1
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+SVSEED default: 1
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+[3655650] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3655650] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3655650] [SB] [1;37m[103mGEN: 0x16         0xec         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[3655650] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3672610] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3672610] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3672610] [SB] [1;37m[103mGEN: 0x4c         0xff         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3672610] [SB] [1;37m[103mMON: 0xfb         0x8d         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3733410] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3733410] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3733410] [SB] [1;37m[103mGEN: 0x16         0xff         SOUT0    0     |     ADDR(s=0,p=1,t=1) DATA(s=1,p=1,st=1)[0m
+[3733410] [SB] [1;37m[103mMON: 0xff         0x2e         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3810530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3810530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3810530] [SB] [1;37m[103mGEN: 0x0c         0xf7         SOUT1    0     |     ADDR(s=0,p=0,t=0) DATA(s=0,p=1,st=1)[0m
+[3810530] [SB] [1;37m[103mMON: 0xb2         0x00         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3824610] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3824610] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3824610] [SB] [1;37m[103mGEN: 0xb2         0x00         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3824610] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3842210] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3842210] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3842210] [SB] [1;37m[103mGEN: 0x66         0x00         SOUT0    0     |     ADDR(s=0,p=0,t=0) DATA(s=1,p=0,st=0)[0m
+[3842210] [SB] [1;37m[103mMON: 0x50         0x5e         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[3856290] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3856290] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3856290] [SB] [1;37m[103mGEN: 0xf8         0x50         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3856290] [SB] [1;37m[103mMON: 0x00         0xc3         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3870370] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3870370] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3870370] [SB] [1;37m[103mGEN: 0xe2         0x00         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3870370] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3926690] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3926690] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3926690] [SB] [1;37m[103mGEN: 0x00         0xff         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[3926690] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3940770] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3940770] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3940770] [SB] [1;37m[103mGEN: 0x1a         0x00         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3940770] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3961890] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3961890] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3961890] [SB] [1;37m[103mGEN: 0xff         0xe2         SOUT0    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[3961890] [SB] [1;37m[103mMON: 0x27         0x92         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[3975970] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3975970] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3975970] [SB] [1;37m[103mGEN: 0x1c         0x27         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3975970] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[3983010] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3983010] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3983010] [SB] [1;37m[103mGEN: 0x92         0x0a         SOUT0    0     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[3983010] [SB] [1;37m[103mMON: 0xdc         0xac         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[3998050] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[3998050] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[3998050] [SB] [1;37m[103mGEN: 0x3b         0xdc         SOUT1    0     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[3998050] [SB] [1;37m[103mMON: 0x6d         0x4c         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4019170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4019170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4019170] [SB] [1;37m[103mGEN: 0x63         0xf3         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4019170] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4035810] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4035810] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4035810] [SB] [1;37m[103mGEN: 0xb6         0x77         SOUT0    0     |     ADDR(s=0,p=1,t=1) DATA(s=1,p=0,st=1)[0m
+[4035810] [SB] [1;37m[103mMON: 0x00         0xec         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4056930] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4056930] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4056930] [SB] [1;37m[103mGEN: 0x00         0xec         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4056930] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4070370] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4070370] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4070370] [SB] [1;37m[103mGEN: 0xff         0x37         SOUT0    0     |     ADDR(s=0,p=0,t=1) DATA(s=1,p=1,st=0)[0m
+[4070370] [SB] [1;37m[103mMON: 0xf8         0xc9         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4091810] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4091810] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4091810] [SB] [1;37m[103mGEN: 0x59         0xe0         SOUT1    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4091810] [SB] [1;37m[103mMON: 0xe0         0x0c         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4099170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4099170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4099170] [SB] [1;37m[103mGEN: 0xff         0xb2         SOUT0    0     |     ADDR(s=1,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4099170] [SB] [1;37m[103mMON: 0x1d         0xff         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4131170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4131170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4131170] [SB] [1;37m[103mGEN: 0x1d         0xff         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4131170] [SB] [1;37m[103mMON: 0x59         0x8e         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4194530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4194530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4194530] [SB] [1;37m[103mGEN: 0x57         0xdc         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4194530] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4204130] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4204130] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4204130] [SB] [1;37m[103mGEN: 0x36         0x00         SOUT1    0     |     ADDR(s=1,p=0,t=0) DATA(s=0,p=0,st=1)[0m
+[4204130] [SB] [1;37m[103mMON: 0x99         0xc3         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4214690] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4214690] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4214690] [SB] [1;37m[103mGEN: 0x09         0x39         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4214690] [SB] [1;37m[103mMON: 0xff         0x95         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4228770] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4228770] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4228770] [SB] [1;37m[103mGEN: 0xff         0x00         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4228770] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4292130] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4292130] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4292130] [SB] [1;37m[103mGEN: 0x73         0x81         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4292130] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4308130] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4308130] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4308130] [SB] [1;37m[103mGEN: 0x3b         0xc6         SOUT1    0     |     ADDR(s=0,p=0,t=0) DATA(s=0,p=0,st=1)[0m
+[4308130] [SB] [1;37m[103mMON: 0xc3         0x20         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4338530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4338530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4338530] [SB] [1;37m[103mGEN: 0x87         0x58         SOUT0    0     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=0)[0m
+[4338530] [SB] [1;37m[103mMON: 0xb5         0x88         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4366690] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4366690] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4366690] [SB] [1;37m[103mGEN: 0xd2         0x7a         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4366690] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4373730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4373730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4373730] [SB] [1;37m[103mGEN: 0xec         0xde         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4373730] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4380770] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4380770] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4380770] [SB] [1;37m[103mGEN: 0xb5         0x88         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4380770] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4423010] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4423010] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4423010] [SB] [1;37m[103mGEN: 0xd3         0x63         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4423010] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4430050] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4430050] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4430050] [SB] [1;37m[103mGEN: 0x69         0x93         SOUT0    0     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4430050] [SB] [1;37m[103mMON: 0x6d         0x2a         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4465250] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4465250] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4465250] [SB] [1;37m[103mGEN: 0xcd         0xff         SOUT0    0     |     ADDR(s=1,p=1,t=0) DATA(s=1,p=0,st=1)[0m
+[4465250] [SB] [1;37m[103mMON: 0xca         0x28         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4507490] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4507490] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4507490] [SB] [1;37m[103mGEN: 0xca         0x28         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4507490] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4521570] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4521570] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4521570] [SB] [1;37m[103mGEN: 0xbe         0xc1         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4521570] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4549730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4549730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4549730] [SB] [1;37m[103mGEN: 0xe9         0x00         SOUT0    0     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4549730] [SB] [1;37m[103mMON: 0x47         0xe1         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4570850] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4570850] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4570850] [SB] [1;37m[103mGEN: 0xff         0x03         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4570850] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4581410] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4581410] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4581410] [SB] [1;37m[103mGEN: 0x20         0x92         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4581410] [SB] [1;37m[103mMON: 0xff         0x8f         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4595490] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4595490] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4595490] [SB] [1;37m[103mGEN: 0x47         0xe1         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4595490] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4626530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4626530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4626530] [SB] [1;37m[103mGEN: 0xdf         0xff         SOUT0    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4626530] [SB] [1;37m[103mMON: 0x08         0x4f         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4633570] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4633570] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4633570] [SB] [1;37m[103mGEN: 0x8f         0x00         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4633570] [SB] [1;37m[103mMON: 0x08         0x4f         SOUTX    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4654690] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4654690] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4654690] [SB] [1;37m[103mGEN: 0x36         0x42         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4654690] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4704610] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4704610] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4704610] [SB] [1;37m[103mGEN: 0xa8         0x7f         SOUT0    0     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4704610] [SB] [1;37m[103mMON: 0x55         0x00         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4711650] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4711650] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4711650] [SB] [1;37m[103mGEN: 0xf9         0xbc         SOUT0    0     |     ADDR(s=0,p=0,t=1) DATA(s=1,p=1,st=1)[0m
+[4711650] [SB] [1;37m[103mMON: 0xff         0x0a         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4718690] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4718690] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4718690] [SB] [1;37m[103mGEN: 0x53         0x06         SOUT1    0     |     ADDR(s=1,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4718690] [SB] [1;37m[103mMON: 0x1e         0xb9         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4725730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4725730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4725730] [SB] [1;37m[103mGEN: 0xdb         0x19         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4725730] [SB] [1;37m[103mMON: 0x23         0x91         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4739810] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4739810] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4739810] [SB] [1;37m[103mGEN: 0x00         0xf2         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4739810] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4753890] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4753890] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4753890] [SB] [1;37m[103mGEN: 0x55         0x00         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4753890] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4760930] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4760930] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4760930] [SB] [1;37m[103mGEN: 0xff         0x0a         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4760930] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4767970] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4767970] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4767970] [SB] [1;37m[103mGEN: 0x1e         0xb9         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4767970] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4775010] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4775010] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4775010] [SB] [1;37m[103mGEN: 0x23         0x91         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[4775010] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4812130] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4812130] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4812130] [SB] [1;37m[103mGEN: 0xff         0x32         SOUT0    0     |     ADDR(s=1,p=0,t=1) DATA(s=1,p=0,st=1)[0m
+[4812130] [SB] [1;37m[103mMON: 0x0b         0x88         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4858850] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4858850] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4858850] [SB] [1;37m[103mGEN: 0xa3         0x81         SOUT0    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[4858850] [SB] [1;37m[103mMON: 0xb1         0x61         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[4866530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4866530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4866530] [SB] [1;37m[103mGEN: 0xdd         0x18         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4866530] [SB] [1;37m[103mMON: 0xb7         0x9f         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4901730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4901730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4901730] [SB] [1;37m[103mGEN: 0xff         0x00         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4901730] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4915810] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4915810] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4915810] [SB] [1;37m[103mGEN: 0xac         0xd8         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4915810] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[4989730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[4989730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[4989730] [SB] [1;37m[103mGEN: 0xff         0x6c         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[4989730] [SB] [1;37m[103mMON: 0x56         0x77         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5005410] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5005410] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5005410] [SB] [1;37m[103mGEN: 0xcb         0xde         SOUT0    0     |     ADDR(s=0,p=1,t=0) DATA(s=0,p=0,st=0)[0m
+[5005410] [SB] [1;37m[103mMON: 0x89         0xfe         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5014370] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5014370] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5014370] [SB] [1;37m[103mGEN: 0xef         0x47         SOUT0    0     |     ADDR(s=0,p=1,t=0) DATA(s=0,p=1,st=1)[0m
+[5014370] [SB] [1;37m[103mMON: 0xd4         0x00         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5021410] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5021410] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5021410] [SB] [1;37m[103mGEN: 0xb8         0x73         SOUT0    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5021410] [SB] [1;37m[103mMON: 0x7c         0x58         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5042530] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5042530] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5042530] [SB] [1;37m[103mGEN: 0xff         0x6f         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5042530] [SB] [1;37m[103mMON: 0x01         0x3c         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5077730] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5077730] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5077730] [SB] [1;37m[103mGEN: 0xd4         0x00         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5077730] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5084770] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5084770] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5084770] [SB] [1;37m[103mGEN: 0x7c         0x58         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5084770] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5105890] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5105890] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5105890] [SB] [1;37m[103mGEN: 0x01         0x3c         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5105890] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5119330] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5119330] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5119330] [SB] [1;37m[103mGEN: 0x00         0x55         SOUT0    0     |     ADDR(s=1,p=1,t=0) DATA(s=0,p=1,st=1)[0m
+[5119330] [SB] [1;37m[103mMON: 0xe9         0x48         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5126370] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5126370] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5126370] [SB] [1;37m[103mGEN: 0xc1         0xed         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5126370] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5133410] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5133410] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5133410] [SB] [1;37m[103mGEN: 0x2e         0xc1         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[5133410] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5147490] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5147490] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5147490] [SB] [1;37m[103mGEN: 0x49         0x38         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5147490] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5179170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5179170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5179170] [SB] [1;37m[103mGEN: 0x02         0xb9         SOUT1    0     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=0)[0m
+[5179170] [SB] [1;37m[103mMON: 0xe9         0xf5         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5249570] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5249570] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5249570] [SB] [1;37m[103mGEN: 0x1e         0xfa         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5249570] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5348130] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5348130] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5348130] [SB] [1;37m[103mGEN: 0xa0         0xf0         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5348130] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5387490] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5387490] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5387490] [SB] [1;37m[103mGEN: 0xda         0x94         SOUT0    0     |     ADDR(s=1,p=1,t=0) DATA(s=1,p=1,st=1)[0m
+[5387490] [SB] [1;37m[103mMON: 0x38         0x12         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5395170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5395170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5395170] [SB] [1;37m[103mGEN: 0x6b         0x00         SOUT1    0     |     ADDR(s=1,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5395170] [SB] [1;37m[103mMON: 0x00         0xfa         SOUT0    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=0,st=1)[0m
+[5424930] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5424930] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5424930] [SB] [1;37m[103mGEN: 0xf3         0xa6         SOUT0    0     |     ADDR(s=0,p=0,t=0) DATA(s=1,p=0,st=1)[0m
+[5424930] [SB] [1;37m[103mMON: 0xb3         0x6e         SOUT0    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=1,st=1)[0m
+[5467170] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5467170] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5467170] [SB] [1;37m[103mGEN: 0x38         0x12         SOUT1    1     |     ADDR(s=0,p=1,t=1) DATA(s=0,p=0,st=1)[0m
+[5467170] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+[5481250] [SB] [1;31m------------------------- ERROR: Mismatch between GEN and MON! -------------------------[0m
+[5481250] [SB] [1;37m[103m     ADDR         DATA         PORT     VALID                    DETAILS                [0m
+[5481250] [SB] [1;37m[103mGEN: 0x77         0x20         SOUT1    1     |     ADDR(s=0,p=0,t=1) DATA(s=0,p=1,st=1)[0m
+[5481250] [SB] [1;37m[103mMON: 0xxx         0xxx         SOUTX    0     |     ADDR(s=x,p=x,t=x) DATA(s=x,p=x,st=x)[0m
+
+[1;30m[101m-----------------------------------[0m
+[1;30m[101m----------- Test FAILED -----------[0m
+[1;30m[101m-----------------------------------[0m
+Simulation complete via $finish(1) at time 5516450 NS + 0
+../tb/simple_uart_switch_tb.sv:319                 $finish;
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_31c37bdc_19c982b5.ucm
+  data               :  ./cov_work/scope/test/icc_31c37bdc_19c982b5.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 04:48:38 CEST  (total: 00:00:02)

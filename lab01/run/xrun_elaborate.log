@@ -1,0 +1,73 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 04:48:36 CEST
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.svp
+		simple_uart_switch_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	+ntb_random_seed=random
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+
+   User defined plus("+") options:
+	+ntb_random_seed=random
+
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+xmelab: *W,COVMLE: (/home/student/pzieba/VDIC/lab01/tb/simple_uart_switch_tb.sv:74):Toggle coverage disabled for object  'mem_table'  across all instances of the module/generate as its size '10240' is greater than the allowed limit '2^10'. You can change the allowed limit for toggle coverage of multi-dimensional objects using  [<max_bits_base2_exponent>] argument of -sv_mda option of set_toggle_scoring  CCF command. The valid values for this option are 10,12,14,16,18,20,22,24.
+        static uart_transaction_t tr_finish = '{default:0};
+                                                        |
+xmelab: *W,ENUMERR (../tb/simple_uart_switch_tb.sv,169|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+        $write("[%0t] [SB] %sGEN: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
+                                                                                                                |
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,671|112): Illegal width specifier in format ignored (%-0b).
+        $write("[%0t] [SB] %sMON: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
+                                                                                                                |
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,679|112): Illegal width specifier in format ignored (%-0b).
+	Building instance overlay tables: ..........
+xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions containing struct datatypes. For backward compatibility, use " set_backward_compat -no_struct " coverage configuration file command..
+.......... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.simple_switch_uart:svp <0x1ce55a2a>
+			streams:  13, words: 15555
+		worklib.top:sv <0x14abaace>
+			streams:  36, words: 96401
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		               Instances  Unique
+		Modules:               2       2
+		Registers:           124     125
+		Scalar wires:         10       -
+		Named events:          1       1
+		Always blocks:         3       3
+		Initial blocks:        7       7
+		Final blocks:          1       1
+		Parallel blocks:       1       1
+		Cont. assignments:     1       2
+		Pseudo assignments:    4       -
+		Assertions:            1       1
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 04:48:36 CEST  (total: 00:00:00)

@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(21Oct2025:03:19:30):( xrun -compile -l xrun_compile.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright +ntb_random_seed=random -coverage all -covoverwrite -covfile xrun_covfile.txt )&&(./INCA_libs_gui/env.d/env.history.21Oct2025_03_19_30)
+s2::(21Oct2025:03:19:30):( xrun -elaborate -l xrun_elaborate.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright +ntb_random_seed=random -coverage all -covoverwrite -covfile xrun_covfile.txt )&&(./INCA_libs_gui/env.d/env.history.21Oct2025_03_19_30)
+s3::(21Oct2025:03:19:31):( xrun -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright +ntb_random_seed=random -coverage all -covoverwrite -covfile xrun_covfile.txt +UVM_TESTNAME=lab01_example -l xrun_gui.log )&&(./INCA_libs_gui/env.d/env.history.21Oct2025_03_19_31)
