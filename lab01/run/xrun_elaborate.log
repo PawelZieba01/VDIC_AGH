@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 21, 2025 at 04:48:36 CEST
+TOOL:	xrun(64)	24.09-s005: Started on Oct 27, 2025 at 13:27:40 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -36,13 +36,13 @@ xrun
 xmelab: *W,COVMLE: (/home/student/pzieba/VDIC/lab01/tb/simple_uart_switch_tb.sv:74):Toggle coverage disabled for object  'mem_table'  across all instances of the module/generate as its size '10240' is greater than the allowed limit '2^10'. You can change the allowed limit for toggle coverage of multi-dimensional objects using  [<max_bits_base2_exponent>] argument of -sv_mda option of set_toggle_scoring  CCF command. The valid values for this option are 10,12,14,16,18,20,22,24.
         static uart_transaction_t tr_finish = '{default:0};
                                                         |
-xmelab: *W,ENUMERR (../tb/simple_uart_switch_tb.sv,169|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+xmelab: *W,ENUMERR (../tb/simple_uart_switch_tb.sv,173|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
         $write("[%0t] [SB] %sGEN: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
                                                                                                                 |
-xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,671|112): Illegal width specifier in format ignored (%-0b).
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,692|112): Illegal width specifier in format ignored (%-0b).
         $write("[%0t] [SB] %sMON: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
                                                                                                                 |
-xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,679|112): Illegal width specifier in format ignored (%-0b).
+xmelab: *W,IGNFMT (../tb/simple_uart_switch_tb.sv,700|112): Illegal width specifier in format ignored (%-0b).
 	Building instance overlay tables: ..........
 xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions containing struct datatypes. For backward compatibility, use " set_backward_compat -no_struct " coverage configuration file command..
 .......... Done
@@ -70,4 +70,4 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 		Pseudo assignments:    4       -
 		Assertions:            1       1
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 21, 2025 at 04:48:36 CEST  (total: 00:00:00)
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 27, 2025 at 13:27:40 CET  (total: 00:00:00)
