@@ -1,0 +1,42 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 14, 2025 at 17:35:35 CEST
+xrun
+	-compile
+	-l xrun_compile.log
+	-F ../tb/tb.f
+		-F ../tb/../../common/tinyalu/tinyalu.f
+			tinyalu_pkg.sv
+			single_cycle.sv
+			three_cycle.sv
+			tinyalu.sv
+		tinyalu_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+file: ../tb/../../common/tinyalu/tinyalu_pkg.sv
+	package worklib.tinyalu_pkg:sv
+		errors: 0, warnings: 0
+file: ../tb/../../common/tinyalu/single_cycle.sv
+	module worklib.single_cycle:sv
+		errors: 0, warnings: 0
+file: ../tb/../../common/tinyalu/three_cycle.sv
+	module worklib.three_cycle:sv
+		errors: 0, warnings: 0
+file: ../tb/../../common/tinyalu/tinyalu.sv
+	module worklib.tinyalu:sv
+		errors: 0, warnings: 0
+file: ../tb/tinyalu_tb.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 14, 2025 at 17:35:36 CEST  (total: 00:00:01)

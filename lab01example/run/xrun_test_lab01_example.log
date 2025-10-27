@@ -1,0 +1,84 @@
+TOOL:	xrun(64)	24.09-s005: Started on Oct 14, 2025 at 17:35:36 CEST
+xrun
+	-F ../tb/tb.f
+		-F ../tb/../../common/tinyalu/tinyalu.f
+			tinyalu_pkg.sv
+			single_cycle.sv
+			three_cycle.sv
+			tinyalu.sv
+		tinyalu_tb.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab01_example
+	-l xrun_test_lab01_example.log
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tinyalu_pkg
+		top
+
+	Extracting FSMs for coverage:
+		worklib.single_cycle
+		worklib.three_cycle
+		worklib.tinyalu
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              4       4
+		Verilog packages:     1       1
+		Registers:           35      35
+		Scalar wires:        11       -
+		Vectored wires:       9       -
+		Always blocks:        3       3
+		Initial blocks:       4       4
+		Final blocks:         1       1
+		Cont. assignments:    6       8
+		Pseudo assignments:   4       -
+		Assertions:           1       1
+		Process Clocks:       2       1
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+19990 Clock cycles elapsed: 1000
+39990 Clock cycles elapsed: 2000
+[1;30m[102m-----------------------------------
+----------- Test PASSED -----------
+-----------------------------------[0m
+
+Simulation complete via $finish(1) at time 44900 NS + 0
+../tb/tinyalu_tb.sv:181     $finish;
+xcelium> exit
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  top(top)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_5e04705e_5c85f177.ucm
+  data               :  ./cov_work/scope/test/icc_5e04705e_5c85f177.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 14, 2025 at 17:35:38 CEST  (total: 00:00:02)
