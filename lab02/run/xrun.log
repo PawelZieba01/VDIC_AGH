@@ -1,0 +1,8 @@
+xrun(64): 24.09-s005: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s005: Started on Oct 27, 2025 at 18:03:43 CET
+xrun
+	-gui
+	-coverage all
+	+UVM_TESTNAME=lab02_example
+xrun: *E,NOMOPT: You have not specified a -R (or a -r <snapshot>) option, nor have you specified a source file for compilation.
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 27, 2025 at 18:03:44 CET  (total: 00:00:01)

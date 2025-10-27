@@ -1,0 +1,25 @@
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
+*I,RUNLD: Successfully loaded run /home/student/pzieba/VDIC/lab02/run/cov_work/scope/lab02_example.
+*I,MERGL1: Merging Simulation Coverage ...
+----------------------------
+*I,MERGL1: Preparing target model ...
+*I,MERGL1: Reading model of primary run (cov_work/scope/lab02_example) as initial model: cov_work/scope/icc_56c5535e_6de26c63.ucm
+*I,MERGL1: Target model generated successfully.
+*I,MERGL1: Projecting Simulation ucd data into the target model ...
+*I,MERGL2:   cov_work/scope/lab02_example:
+*I,MERGL3:       Data is projected in to the target model.
+*I,MERGL1: Writing output database cov_work/scope/merged_results:
+*I,MERGL2:   Model: cov_work/scope/merged_results/icc_56c5535e_6de26c63.ucm
+*I,MERGL2:   Data : cov_work/scope/merged_results/icc_56c5535e_6de26c63.ucd
+*I,MERGL1: No Specman coverage databases found in the runs.
+Total conflicts during target model creation: 0
+Total items not merged                      : 0
+Total runs not considered during target model creation: 0
+Total runs not merged                                 : 0
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
+*I,RUNLD: Successfully loaded run /home/student/pzieba/VDIC/lab02/run/cov_work/scope/merged_results.
+*W,REPDEP: This is a legacy report and no future enhancement is planned for this report. It is recommended that you use the 'report_metrics' command and generate a dynamic report.
+name                                     Overall Average      Overall Covered      Code Average         Code Covered         Fsm Average          Fsm Covered          Functional Average   Functional Covered   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+top                                      88.33%               72.39% (818/1130/5)  80.81%               83.48% (288/345/5)   n/a                  n/a                  95.85%               67.52% (530/785)     
+|--dut                                   83.33%               83.33% (5/6)         83.33%               83.33% (5/6)         n/a                  n/a                  n/a                  n/a                  

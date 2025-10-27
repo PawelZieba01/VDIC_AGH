@@ -1,0 +1,2 @@
+#e1(27Oct2025:18:39:51): source ./INCA_libs/env.d/env.history.27Oct2025_18_39_51
+s1(27Oct2025:18:39:51):  xrun -compile -l xrun_compile.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt 

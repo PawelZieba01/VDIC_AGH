@@ -123,13 +123,13 @@ module top;
             data = rand_biased_byte();
             exp_port = mem_table[addr].port; // Look up expected port from programming table
 
-            // Generate biased per-frame bit correctness (0 = correct start, 1 = error)
-            addr_start_v  = (rand_biased_start_bit(0) == 1'b0);
+            // Generate biased per-frame bit correctness (0 =dcorrect start, 1 = error)
+            addr_start_v  = (rand_biased_start_bit(1) == 1'b0);
             addr_stop_v   = (rand_biased_stop_bit(0)  == 1'b1);
             parity_bit    = rand_biased_parity_bit(addr, 0);
             addr_parity_v = (parity_bit == (^addr));
 
-            data_start_v  = (rand_biased_start_bit(0) == 1'b0);
+            data_start_v  = (rand_biased_start_bit(1) == 1'b0);
             data_stop_v   = (rand_biased_stop_bit(0)  == 1'b1);
             parity_bit    = rand_biased_parity_bit(data, 0);
             data_parity_v = (parity_bit == (^data));
@@ -137,6 +137,10 @@ module top;
             // packet valid if both frames bits appear valid
             pkt_valid = addr_start_v && addr_parity_v && addr_stop_v &&
                        data_start_v && data_parity_v && data_stop_v;
+
+            `ifdef DEBUG
+            $display("[%0t] exp_port for addr=0x%02h is %0d", $time, addr, exp_port);
+            `endif
 
             create_and_send_transaction(
                 addr, data, exp_port,
@@ -158,9 +162,9 @@ module top;
             //send packet i
             create_and_send_transaction(
                 i[7:0], 8'hAA, mem_table[i[7:0]].port,
-                1'b0, 1'b1, 1'b1,
-                1'b0, 1'b1, 1'b1, 
-                1'b0, 1'b0
+                1'b1, 1'b1, 1'b1,
+                1'b1, 1'b1, 1'b1, 
+                1'b1, 1'b0
             );
         end
     endtask
@@ -185,8 +189,16 @@ module top;
         -> monitor_start_evt;
 
         // Send random packets
-        send_random_packets(256);
+        send_random_packets(5000);
 
+        //send_seq_packets(256);
+
+        // create_and_send_transaction(
+        //     8'hFF, 8'h20, mem_table[8'hFF].port,
+        //     1'b1, 1'b1, 1'b1,
+        //     1'b1, 1'b1, 1'b1, 
+        //     1'b1, 1'b0
+        // );
         //send finish_sim
         tr_finish.finish_sim = 1;
         gen2sb_mb.put(tr_finish);        
@@ -224,8 +236,8 @@ module top;
 
             // send packet unconditionally
             `ifdef DEBUG
-            $display("[%0t] [DRV] Sending packet addr=0x%02h data=0x%02h", 
-                    $time, tr.switch_packet.addr.data, tr.switch_packet.data.data);
+            $display("[%0t] [DRV] Sending packet addr=0x%02h data=0x%02h, port=%0d", 
+                    $time, tr.switch_packet.addr.data, tr.switch_packet.data.data, tr.port);
             `endif
 
             prog = tr.prog;
@@ -318,6 +330,15 @@ module top;
                 `endif
                 $finish;
             end
+
+            `ifdef DEBUG
+            $display("[%0t] [SB] Get transaction GEN: addr=0x%02h data=0x%02h port=%0d valid=%0b",
+                    $time, gen_tr.switch_packet.addr.data, gen_tr.switch_packet.data.data,
+                    gen_tr.port, gen_tr.valid);
+            $display("[%0t] [SB] Get transaction MON: addr=0x%02h data=0x%02h port=%0d valid=%0b empty_packet=%0b",
+                    $time, mon_tr.switch_packet.addr.data, mon_tr.switch_packet.data.data,
+                    mon_tr.port, mon_tr.valid, mon_tr.empty_packet);
+            `endif
 
             // If generator indicates packet is invalid -> expect empty packet from monitor
             if (gen_tr.valid == 1'b0) begin

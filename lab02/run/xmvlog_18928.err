@@ -1,0 +1,413 @@
+csi-xmvlog - CSI: Command line:
+xmvlog
+    -f /home/student/pzieba/VDIC/lab02/run/INCA_libs/run.lnx8664.24.09.d/xmvlog.args
+        -XLMODE ./INCA_libs/run.lnx8664.24.09.d
+        -RUNMODE
+        -amsdlibdir ./INCA_libs/AMSD
+        ../tb/../../common/simple_uart_switch.svp
+        ../tb/simple_uart_switch_tb.sv
+        -NOWARN DSEM2009
+        -NOWARN DSEMEL
+        -NOWARN CGDEFN
+        -NOWARN COVUTA
+        -NOWARN BADPRF
+        -NOWARN XCLGNOPTM
+        -NOWARN RNDXCELON
+        -NOWARN SAWSTP
+        -XMLIBDIRNAME INCA_libs
+        -NOCOPYRIGHT
+        -CDSLIB ./INCA_libs/run.lnx8664.24.09.d/cdsrun.lib
+        -HDLVAR ./INCA_libs/run.lnx8664.24.09.d/hdlrun.var
+        -no_analogsolver
+        -MESSAGES
+        -UPDATE
+        -XLLIBSTORE ./INCA_libs/run.lnx8664.24.09.d/xllibs
+        -ALLOWUNBOUND
+    -CHECK_VERSION TOOL:	xrun(64)	24.09-s005
+    -LOG_FD 4
+
+csi-xmvlog - CSI: *F,XMERROR_0101: vxt_ec_lvalue - D default - 608
+Additional info:
+TOOL:	xmvlog(64)	24.09-s005 (CL: 727498 ), cadence25, Linux 3.10.0-1160.119.1.el7.x86_64 #1 SMP Tue Jun 4 14:43:51 UTC 2024 x86_64
+
+csi-xmvlog - CSI: Cadence Support Investigation, recording details
+Verilog Syntax Tree: root (VST_ROOT) in compilation_unit worklib.\$unit_0x714a2be0 :compilation_unit (VST)
+	Decompile: $unit_0x714a2be0
+Verilog Syntax Tree: compilation unit declaration (VST_D_COMP_UNIT) in compilation_unit worklib.\$unit_0x714a2be0 :compilation_unit (VST)
+	Scope: $unit_0x714a2be0
+	Decompile: $unit_0x714a2be0
+Verilog Syntax Tree: module declaration (VST_D_MODULE)
+	File: ../tb/simple_uart_switch_tb.sv, line 3, position 9
+	Scope: top
+	Decompile: top#(CLKS_PER_BIT)
+	Source  : module top;
+	Position:          ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 108, position 33
+	Scope: top
+	Decompile: unable to decompile type 962 address_coverage
+	Source  :     cov_addresses address_coverage;
+	Position:                                  ^
+Verilog Syntax Tree: root (VST_ROOT)
+	File: ../tb/simple_uart_switch_tb.sv, line 3, position 5
+	Decompile: top#(CLKS_PER_BIT)
+	Source  : module top;
+	Position:      ^
+Verilog Syntax Tree: function declaration (VST_D_FUNCTION)
+	File: ../tb/simple_uart_switch_tb.sv, line 883, position 48
+	Scope: top.rand_biased_parity_bit
+	Decompile: bit rand_biased_parity_bit
+	Source  :     function automatic bit rand_biased_parity_bit(input byte data, input bit force_correct);
+	Position:                                                 ^
+Verilog Syntax Tree: final statement declaration (VST_D_FINAL_STMT)
+	File: ../tb/simple_uart_switch_tb.sv, line 395, position 8
+	Scope: top
+	Decompile: unable to decompile type 570
+	Source  :     final begin : finish_of_the_test
+	Position:         ^
+Verilog Syntax Tree: initial statement declaration (VST_D_INITIAL_STMT)
+	File: ../tb/simple_uart_switch_tb.sv, line 111, position 10
+	Scope: top
+	Source  :     initial begin : coverage_from_generator
+	Position:           ^
+Verilog Syntax Tree: indexed vector type (VST_T_INDEXED_VEC)
+	Decompile: int
+Verilog Syntax Tree: sequential block statement (VST_S_SEQ_BLOCK)
+	File: ../tb/simple_uart_switch_tb.sv, line 111, position 16
+	Scope: top.coverage_from_generator
+	Source  :     initial begin : coverage_from_generator
+	Position:                 ^
+Verilog Syntax Tree: forever statement (VST_S_FOREVER)
+	File: ../tb/simple_uart_switch_tb.sv, line 115, position 14
+	Scope: top.coverage_from_generator
+	Decompile: unable to decompile type 643
+	Source  :         forever begin
+	Position:               ^
+Verilog Syntax Tree: value range range coverbin (VST_COVERBIN_VALUE_RANGE_RANGE)
+	Decompile: unable to decompile type 614
+Verilog Syntax Tree: covergroup declaration (VST_D_COVERGROUP)
+	File: ../tb/simple_uart_switch_tb.sv, line 101, position 27
+	Scope: top
+	Decompile: unable to decompile type 611
+	Source  :     covergroup cov_addresses;
+	Position:                            ^
+Verilog Syntax Tree: blocking assignment statement (VST_S_BLOCKING_ASSIGNMENT)
+	File: ../tb/simple_uart_switch_tb.sv, line 113, position 25
+	Scope: top.coverage_from_generator
+	Decompile: new ()
+	Source  :         address_coverage = new();
+	Position:                          ^
+Verilog Syntax Tree: covergroup type (VST_T_COVERGROUP)
+	File: ../tb/simple_uart_switch_tb.sv, line 108, position 33
+	Scope: top
+	Decompile: unable to decompile type 962
+	Source  :     cov_addresses address_coverage;
+	Position:                                  ^
+Verilog Syntax Tree: sequential block statement (VST_S_SEQ_BLOCK)
+	File: ../tb/simple_uart_switch_tb.sv, line 115, position 20
+	Scope: top.coverage_from_generator
+	Source  :         forever begin
+	Position:                     ^
+Verilog Syntax Tree: if statement (VST_S_IF)
+	File: ../tb/simple_uart_switch_tb.sv, line 120, position 13
+	Scope: top.coverage_from_generator
+	Decompile: tr.prog
+	Source  :             if (tr.prog) begin
+	Position:              ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 120, position 22
+	Scope: top.coverage_from_generator
+	Decompile: tr.prog
+	Source  :             if (tr.prog) begin
+	Position:                       ^
+Verilog Syntax Tree: sequential block statement (VST_S_SEQ_BLOCK)
+	File: ../tb/simple_uart_switch_tb.sv, line 120, position 29
+	Scope: top.coverage_from_generator
+	Source  :             if (tr.prog) begin
+	Position:                              ^
+Verilog Syntax Tree: blocking assignment statement (VST_S_BLOCKING_ASSIGNMENT)
+	File: ../tb/simple_uart_switch_tb.sv, line 121, position 42
+	Scope: top.coverage_from_generator
+	Decompile: tr.switch_packet.addr.data
+	Source  :                 address_coverage.addr_cov = tr.switch_packet.addr.data;
+	Position:                                           ^
+Verilog Syntax Tree: referral into struct (VST_R_INTO_STRUCT)
+	Scope: top
+	Decompile: unable to decompile type 755
+Verilog Syntax Tree: identifier expression (VST_E_IDENTIFIER)
+	File: ../tb/simple_uart_switch_tb.sv, line 103, position 26
+	Scope: top
+	Decompile: addr_cov
+	Source  :         coverpoint addr_cov { 
+	Position:                           ^
+Verilog Syntax Tree: covergroup select expression (VST_E_COVERGROUP_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 121, position 40
+	Scope: top
+	Decompile: unable to decompile type 794
+	Source  :                 address_coverage.addr_cov = tr.switch_packet.addr.data;
+	Position:                                         ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 121, position 69
+	Scope: top.coverage_from_generator
+	Decompile: tr.switch_packet.addr.data
+	Source  :                 address_coverage.addr_cov = tr.switch_packet.addr.data;
+	Position:                                                                      ^
+Verilog Syntax Tree: identifier expression (VST_E_IDENTIFIER)
+	File: ../tb/simple_uart_switch_tb.sv, line 121, position 40
+	Scope: top
+	Decompile: address_coverage
+	Source  :                 address_coverage.addr_cov = tr.switch_packet.addr.data;
+	Position:                                         ^
+Verilog Syntax Tree: builtin statement (VST_S_BUILTIN)
+	File: ../tb/simple_uart_switch_tb.sv, line 117, position 25
+	Scope: top.coverage_from_generator
+	Decompile: unable to decompile type 867
+	Source  :             gen2cov_mb.get(tr);
+	Position:                          ^
+Verilog Syntax Tree: tagged vec type (VST_T_TAGGED_VEC)
+	Scope: top
+	Decompile: struct packed{ struct packed{ struct packed{ logic start; logic data; logic parity; logic stop;  }  addr; struct packed{ logic start; logic data; logic parity; logic stop;  }  data;  }  switch_packet; bit prog; bit valid; bit empty_packet; bit finish_sim;
+Intermediate File: root (IF_ROOT)
+Verilog Syntax Tree: coverpoint declaration (VST_D_COVERPOINT)
+	File: ../tb/simple_uart_switch_tb.sv, line 103, position 17
+	Scope: top
+	Decompile: unable to decompile type 608
+	Source  :         coverpoint addr_cov { 
+	Position:                  ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 781, position 38
+	Scope: top.print_scoreboard_comparison
+	Decompile: struct packed{ struct packed{ struct packed{ logic start; logic data; logic parity; logic stop;  }  addr; struct packed{ logic start; logic data; logic parity; logic stop;  }  data;  }  switch_packet; bit prog; bit valid; bit empty_packet; bit finish_sim;
+	Source  :         input uart_transaction_t mon_tr
+	Position:                                       ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 804, position 60
+	Scope: top.print_scoreboard_comparison
+	Decompile: mon_tr.switch_packet
+	Source  :         mon_data_s = $sformatf("0x%02h", mon_tr.switch_packet.data.data);
+	Position:                                                             ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 885, position 18
+	Scope: top.rand_biased_parity_bit
+	Decompile: bit correct
+	Source  :         bit correct = (^data); // even parity (xor of bits)
+	Position:                   ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 112, position 28
+	Scope: top.coverage_from_generator
+	Decompile: struct packed{ struct packed{ struct packed{ logic start; logic data; logic parity; logic stop;  }  addr; struct packed{ logic start; logic data; logic parity; logic stop;  }  data;  }  switch_packet; bit prog; bit valid; bit empty_packet; bit finish_sim;
+	Source  :         uart_transaction_t tr;
+	Position:                             ^
+Verilog Syntax Tree: identifier expression (VST_E_IDENTIFIER)
+	File: ../tb/simple_uart_switch_tb.sv, line 117, position 28
+	Scope: top.coverage_from_generator
+	Decompile: tr
+	Source  :             gen2cov_mb.get(tr);
+	Position:                             ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 704, position 27
+	Scope: top.decode_uart_frame
+	Decompile: bit signed status
+	Source  :         uart_status_t status = UART_OK;
+	Position:                            ^
+Verilog Syntax Tree: blocking assignment statement (VST_S_BLOCKING_ASSIGNMENT)
+	File: ../tb/simple_uart_switch_tb.sv, line 725, position 17
+	Scope: top.decode_uart_frame
+	Decompile: status
+	Source  :             return status;
+	Position:                  ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 70, position 29
+	Scope: top
+	Decompile: logic clk
+	Source  :     logic                  clk;
+	Position:                              ^
+Verilog Syntax Tree: null statement (VST_S_NULL)
+	File: ../tb/simple_uart_switch_tb.sv, line 543, position 43
+	Scope: top.reset_dut
+	Decompile: null statement
+	Source  :         repeat(CLKS_PER_BIT) @(posedge clk);
+	Position:                                            ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 626, position 42
+	Scope: top.create_and_send_transaction
+	Decompile: struct packed{ logic start; logic data; logic parity; logic stop;  }  data_frame
+	Source  :         uart_frame_t addr_frame, data_frame;
+	Position:                                           ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 641, position 73
+	Scope: top.create_and_send_transaction
+	Decompile: data_frame.parity
+	Source  :             if (!data_parity_valid) data_frame.parity = ~data_frame.parity;
+	Position:                                                                          ^
+Verilog Syntax Tree: static range (VST_R_STATIC_RANGE)
+	Decompile: 7 to 0
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 446, position 21
+	Scope: top.send_seq_packets
+	Decompile: int unsigned i
+	Source  :         int unsigned i;
+	Position:                      ^
+Verilog Syntax Tree: part select expression (VST_E_PART_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 451, position 41
+	Scope: top.send_seq_packets
+	Decompile: i[7:0]
+	Source  :                 i[7:0], 8'hAA, mem_table[i[7:0]].port,
+	Position:                                          ^
+Verilog Syntax Tree: identifier expression (VST_E_IDENTIFIER)
+	File: ../tb/simple_uart_switch_tb.sv, line 564, position 45
+	Scope: top
+	Decompile: clk
+	Source  :             repeat(CLKS_PER_BIT) @(posedge clk);
+	Position:                                              ^
+Verilog Syntax Tree: null statement (VST_S_NULL)
+	File: ../tb/simple_uart_switch_tb.sv, line 564, position 47
+	Scope: top.uart_capture_frame
+	Decompile: null statement
+	Source  :             repeat(CLKS_PER_BIT) @(posedge clk);
+	Position:                                                ^
+Verilog Syntax Tree: if statement (VST_S_IF)
+	File: ../tb/simple_uart_switch_tb.sv, line 376, position 21
+	Scope: top.scoreboard_blk
+	Decompile: (((((((((gen_tr.switch_packet.addr.data != mon_tr.switch_packet.addr.data) || (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data)) || (gen_tr.port != mon_tr.port)) || (gen_tr.switch_packet.addr.start != mon_tr.switch_packet.addr.start)) || 
+	Source  :                     if ((gen_tr.switch_packet.addr.data != mon_tr.switch_packet.addr.data) ||
+	Position:                      ^
+Verilog Syntax Tree: task enable statement (VST_S_TASK_ENABLE)
+	File: ../tb/simple_uart_switch_tb.sv, line 372, position 46
+	Scope: top.scoreboard_blk
+	Decompile: unable to decompile type 651
+	Source  :                     print_scoreboard_comparison(gen_tr, mon_tr);
+	Position:                                               ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 121, position 59
+	Scope: top.coverage_from_generator
+	Decompile: tr.switch_packet
+	Source  :                 address_coverage.addr_cov = tr.switch_packet.addr.data;
+	Position:                                                            ^
+Verilog Syntax Tree: posedge expression (VST_E_POSEDGE)
+	File: ../tb/simple_uart_switch_tb.sv, line 296, position 52
+	Decompile: posedge clk
+	Source  :                     repeat (CLKS_PER_BIT/2) @(posedge clk);
+	Position:                                                     ^
+Verilog Syntax Tree: logical or expression (VST_E_LOGICAL_OR)
+	File: ../tb/simple_uart_switch_tb.sv, line 385, position 96
+	Decompile: (((((((((gen_tr.switch_packet.addr.data != mon_tr.switch_packet.addr.data) || (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data)) || (gen_tr.port != mon_tr.port)) || (gen_tr.switch_packet.addr.start != mon_tr.switch_packet.addr.start)) || 
+	Source  :                         (gen_tr.switch_packet.data.parity != mon_tr.switch_packet.data.parity) ||
+	Position:                                                                                                 ^
+Verilog Syntax Tree: enum const declaration (VST_D_ENUM_CONST)
+	File: ../tb/simple_uart_switch_tb.sv, line 19, position 18
+	Scope: top
+	Decompile: unable to decompile type 745
+	Source  :         TEST_FAILED
+	Position:                   ^
+Verilog Syntax Tree: task enable statement (VST_S_TASK_ENABLE)
+	File: ../tb/simple_uart_switch_tb.sv, line 388, position 50
+	Scope: top.scoreboard_blk
+	Decompile: unable to decompile type 651
+	Source  :                         print_scoreboard_comparison(gen_tr, mon_tr);
+	Position:                                                   ^
+Verilog Syntax Tree: sequential block statement (VST_S_SEQ_BLOCK)
+	File: ../tb/simple_uart_switch_tb.sv, line 386, position 96
+	Scope: top.scoreboard_blk
+	Source  :                         (gen_tr.switch_packet.data.stop != mon_tr.switch_packet.data.stop)) begin
+	Position:                                                                                                 ^
+Verilog Syntax Tree: logical or expression (VST_E_LOGICAL_OR)
+	File: ../tb/simple_uart_switch_tb.sv, line 376, position 92
+	Decompile: ((gen_tr.switch_packet.addr.data != mon_tr.switch_packet.addr.data) || (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data))
+	Source  :                     if ((gen_tr.switch_packet.addr.data != mon_tr.switch_packet.addr.data) ||
+	Position:                                                                                             ^
+Verilog Syntax Tree: identifier expression (VST_E_IDENTIFIER)
+	File: ../tb/simple_uart_switch_tb.sv, line 296, position 56
+	Scope: top
+	Decompile: clk
+	Source  :                     repeat (CLKS_PER_BIT/2) @(posedge clk);
+	Position:                                                         ^
+Verilog Syntax Tree: register declaration (VST_D_REG)
+	File: ../tb/simple_uart_switch_tb.sv, line 325, position 40
+	Scope: top.scoreboard_blk
+	Decompile: struct packed{ struct packed{ struct packed{ logic start; logic data; logic parity; logic stop;  }  addr; struct packed{ logic start; logic data; logic parity; logic stop;  }  data;  }  switch_packet; bit prog; bit valid; bit empty_packet; bit finish_sim;
+	Source  :         uart_transaction_t gen_tr, mon_tr;
+	Position:                                         ^
+Verilog Syntax Tree: number expression (VST_E_NUMBER)
+	File: ../tb/simple_uart_switch_tb.sv, line 451, position 43
+	Decompile: 7
+	Source  :                 i[7:0], 8'hAA, mem_table[i[7:0]].port,
+	Position:                                            ^
+Verilog Syntax Tree: logical inequality expression (VST_E_LOGICAL_INEQUALITY)
+	File: ../tb/simple_uart_switch_tb.sv, line 377, position 57
+	Decompile: (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data)
+	Source  :                         (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data) ||
+	Position:                                                          ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 377, position 88
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet.data.data
+	Source  :                         (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data) ||
+	Position:                                                                                         ^
+Verilog Syntax Tree: number expression (VST_E_NUMBER)
+	File: ../tb/simple_uart_switch_tb.sv, line 451, position 45
+	Decompile: 0
+	Source  :                 i[7:0], 8'hAA, mem_table[i[7:0]].port,
+	Position:                                              ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 377, position 78
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data) ||
+	Position:                                                                               ^
+Intermediate File: chole (IF_CHOLE)
+Intermediate File: data block (IF_BLK)
+Verilog Syntax Tree: builtin expression (VST_E_BUILTIN)
+	File: ../tb/simple_uart_switch_tb.sv, line 186, position 23
+	Scope: top.tp_gen_blk
+	Decompile: mon2sb_mb.new()
+	Source  :         mon2sb_mb  = new();
+	Position:                        ^
+Verilog Syntax Tree: sequential block statement (VST_S_SEQ_BLOCK)
+	File: ../tb/simple_uart_switch_tb.sv, line 132, position 14
+	Scope: top
+	Source  :     final begin
+	Position:               ^
+Verilog Syntax Tree: number expression (VST_E_NUMBER)
+	Decompile: 2147483647
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 385, position 80
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.data.parity != mon_tr.switch_packet.data.parity) ||
+	Position:                                                                                 ^
+Intermediate File: string (IF_STRING)
+	Decompile: mon_tr
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 384, position 79
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.data.start != mon_tr.switch_packet.data.start) ||
+	Position:                                                                                ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 382, position 78
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.addr.stop != mon_tr.switch_packet.addr.stop) ||
+	Position:                                                                               ^
+Intermediate File: string (IF_STRING)
+	Decompile: switch_packet
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 381, position 80
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.addr.parity != mon_tr.switch_packet.addr.parity) ||
+	Position:                                                                                 ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 380, position 79
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet
+	Source  :                         (gen_tr.switch_packet.addr.start != mon_tr.switch_packet.addr.start) ||
+	Position:                                                                                ^
+Verilog Syntax Tree: member select expression (VST_E_MEMBER_SELECT)
+	File: ../tb/simple_uart_switch_tb.sv, line 377, position 83
+	Scope: top.scoreboard_blk
+	Decompile: mon_tr.switch_packet.data
+	Source  :                         (gen_tr.switch_packet.data.data != mon_tr.switch_packet.data.data) ||
+	Position:                                                                                    ^
+csi-xmvlog - CSI: investigation complete took 0.036 secs, send this file to Cadence Support
