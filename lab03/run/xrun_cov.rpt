@@ -1,0 +1,30 @@
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
+*I,RUNLD: Successfully loaded run /home/student/pzieba/VDIC/lab03/run/cov_work/scope/lab02_example.
+*I,MERGL1: Merging Simulation Coverage ...
+----------------------------
+*I,MERGL1: Preparing target model ...
+*I,MERGL1: Reading model of primary run (cov_work/scope/lab02_example) as initial model: cov_work/scope/icc_2e19a7b9_3931f5af.ucm
+*I,MERGL1: Target model generated successfully.
+*I,MERGL1: Projecting Simulation ucd data into the target model ...
+*I,MERGL2:   cov_work/scope/lab02_example:
+*I,MERGL3:       Data is projected in to the target model.
+*I,MERGL1: Writing output database cov_work/scope/merged_results:
+*I,MERGL2:   Model: cov_work/scope/merged_results/icc_2e19a7b9_3931f5af.ucm
+*I,MERGL2:   Data : cov_work/scope/merged_results/icc_2e19a7b9_3931f5af.ucd
+*I,MERGL1: No Specman coverage databases found in the runs.
+Total conflicts during target model creation: 0
+Total items not merged                      : 0
+Total runs not considered during target model creation: 0
+Total runs not merged                                 : 0
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
+*I,RUNLD: Successfully loaded run /home/student/pzieba/VDIC/lab03/run/cov_work/scope/merged_results.
+*W,REPDEP: This is a legacy report and no future enhancement is planned for this report. It is recommended that you use the 'report_metrics' command and generate a dynamic report.
+name                                     Overall Average      Overall Covered      Code Average         Code Covered         Fsm Average          Fsm Covered          Functional Average   Functional Covered   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+top                                      83.40%               98.07% (814/830)     68.97%               74.00% (37/50)       n/a                  n/a                  97.82%               99.62% (777/780)     
+|--tb                                    55.56%               55.56% (5/9)         55.56%               55.56% (5/9)         n/a                  n/a                  n/a                  n/a                  
+|--dut                                   100.00%              100.00% (6/6)        100.00%              100.00% (6/6)        n/a                  n/a                  n/a                  n/a                  
+|--u_tp_gen                              74.92%               72.96% (116/159/3)   74.92%               72.96% (116/159/3)   n/a                  n/a                  n/a                  n/a                  
+|--u_driver                              98.00%               92.86% (26/28)       96.00%               92.59% (25/27)       n/a                  n/a                  100.00%              100.00% (1/1)        
+|--u_monitor                             76.71%               80.72% (67/83/2)     76.71%               80.72% (67/83/2)     n/a                  n/a                  n/a                  n/a                  
+|--u_score                               44.14%               44.07% (26/59)       44.14%               44.07% (26/59)       n/a                  n/a                  n/a                  n/a                  

@@ -1,0 +1,56 @@
+TOOL:	xrun(64)	24.09-s005: Started on Nov 03, 2025 at 16:19:51 CET
+xrun
+	-compile
+	-l xrun_compile.log
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.svp
+		simple_uart_switch_tb.sv
+		driver.sv
+		monitor.sv
+		scoreboard.sv
+		tp_gen.sv
+		coverage.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+file: ../tb/../../common/simple_uart_switch.svp
+	module worklib.simple_switch_uart:svp
+		errors: 0, warnings: 0
+file: ../tb/simple_uart_switch_tb.sv
+	package worklib.tb_pkg:sv
+		errors: 0, warnings: 0
+	interface worklib.tb_if:sv
+		errors: 0, warnings: 0
+	module worklib.top:sv
+		errors: 0, warnings: 0
+file: ../tb/driver.sv
+	module worklib.driver:sv
+		errors: 0, warnings: 0
+file: ../tb/monitor.sv
+	module worklib.monitor:sv
+		errors: 0, warnings: 0
+file: ../tb/scoreboard.sv
+	module worklib.scoreboard:sv
+		errors: 0, warnings: 0
+file: ../tb/tp_gen.sv
+        static uart_transaction_t tr_finish = '{default:0};
+                                                        |
+xmvlog: *W,ENUMERR (../tb/tp_gen.sv,40|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
+	module worklib.tp_gen:sv
+		errors: 0, warnings: 1
+file: ../tb/coverage.sv
+	module worklib.coverage:sv
+		errors: 0, warnings: 0
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 03, 2025 at 16:19:52 CET  (total: 00:00:01)

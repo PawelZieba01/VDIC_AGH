@@ -1,0 +1,38 @@
+[INFO ] 2025-10-27 15:10:53 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 37042
+[INFO ] 2025-10-27 15:10:58 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 33760
+[INFO ] 2025-10-27 16:48:44 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 37421
+[ERROR] 2025-10-27 16:48:46 [com.cadence.mdv.cli.app.MDVCLIApp] [main] - 
+java.io.FileNotFoundException: merged (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(Unknown Source)
+	at java.base/java.io.FileInputStream.<init>(Unknown Source)
+	at java.base/java.io.FileReader.<init>(Unknown Source)
+	at com.cadence.mdv.cli.app.MDVCLIApp$FileCLIReader.<init>(MDVCLIApp.java:67)
+	at com.cadence.mdv.cli.app.MDVCLIApp.<init>(MDVCLIApp.java:153)
+	at com.cadence.mdv.imc.GMDVIMCManager.applStarted(GMDVIMCManager.java:139)
+	at com.cadence.mdv.imc.IMCApplServices.applStarted(IMCApplServices.java:169)
+	at com.cadence.ufi.GUFIManager.runMain(GUFIManager.java:483)
+	at com.cadence.mdv.imc.Main.main(Main.java:576)
+[ERROR] 2025-10-27 16:48:46 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Cannot read file 'merged'. Check if the file exists and has read permission, and rerun the command.
+[INFO ] 2025-10-27 17:07:21 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 33024
+[ERROR] 2025-10-27 17:07:23 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Cannot read directory 'cov_work/scope/merged'. Check if the directory has read permission, and rerun the command	   
+[ERROR] 2025-10-27 17:07:23 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Valid model file not found for run directory cov_work/scope/merged. Specify a valid run directory with correct ucm, ucd files and rerun the command.
+[INFO ] 2025-10-27 17:08:59 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 43475
+[ERROR] 2025-10-27 17:09:01 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Cannot read directory 'cov_work/scope/test/icc_56c5535e_6de26c63.ucd'. Check if the directory has read permission, and rerun the command	   
+[ERROR] 2025-10-27 17:09:01 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Valid model file not found for run directory cov_work/scope/test/icc_56c5535e_6de26c63.ucd. Specify a valid run directory with correct ucm, ucd files and rerun the command.
+[INFO ] 2025-10-27 17:09:38 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 35991
+[INFO ] 2025-10-27 17:13:47 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 35391
+[INFO ] 2025-10-27 17:13:53 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 34284
+[INFO ] 2025-10-27 17:33:16 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 36066
+[INFO ] 2025-10-28 16:17:39 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 44344
+[INFO ] 2025-10-28 16:17:47 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 46832
+[INFO ] 2025-10-28 16:19:10 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 38290
+[INFO ] 2025-10-28 16:20:20 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 38351
+[INFO ] 2025-11-03 14:44:11 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 36883
+[INFO ] 2025-11-03 14:44:59 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 46649
+[INFO ] 2025-11-03 14:45:04 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 32831
+[INFO ] 2025-11-03 14:45:21 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 40508
+[INFO ] 2025-11-03 14:59:49 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 43451
+[ERROR] 2025-11-03 14:59:50 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Cannot read directory 'cov_work/scope/merged_results'. Check if the directory has read permission, and rerun the command	   
+[ERROR] 2025-11-03 14:59:50 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Valid model file not found for run directory cov_work/scope/merged_results. Specify a valid run directory with correct ucm, ucd files and rerun the command.
+[INFO ] 2025-11-03 15:00:06 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 35039
