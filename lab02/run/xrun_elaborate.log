@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Oct 27, 2025 at 18:39:51 CET
+TOOL:	xrun(64)	24.09-s005: Started on Oct 28, 2025 at 18:52:13 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -45,8 +45,8 @@ xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions con
 	Generating native compiled code:
 		worklib.simple_switch_uart:svp <0x1ce55a2a>
 			streams:  13, words: 15555
-		worklib.top:sv <0x73c72042>
-			streams:  47, words: 115720
+		worklib.top:sv <0x27bcb783>
+			streams:  47, words: 144333
 xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
@@ -54,7 +54,7 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                 2       2
-		Registers:             132     133
+		Registers:             133     133
 		Scalar wires:           10       -
 		Named events:            1       1
 		Always blocks:           3       3
@@ -66,4 +66,4 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 		Assertions:              1       1
 		Covergroup Instances:    0       3
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Oct 27, 2025 at 18:39:52 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Oct 28, 2025 at 18:52:14 CET  (total: 00:00:01)

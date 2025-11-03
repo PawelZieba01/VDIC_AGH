@@ -3,14 +3,14 @@
 *I,MERGL1: Merging Simulation Coverage ...
 ----------------------------
 *I,MERGL1: Preparing target model ...
-*I,MERGL1: Reading model of primary run (cov_work/scope/lab02_example) as initial model: cov_work/scope/icc_56c5535e_6de26c63.ucm
+*I,MERGL1: Reading model of primary run (cov_work/scope/lab02_example) as initial model: cov_work/scope/icc_6739ef20_6e414818.ucm
 *I,MERGL1: Target model generated successfully.
 *I,MERGL1: Projecting Simulation ucd data into the target model ...
 *I,MERGL2:   cov_work/scope/lab02_example:
 *I,MERGL3:       Data is projected in to the target model.
 *I,MERGL1: Writing output database cov_work/scope/merged_results:
-*I,MERGL2:   Model: cov_work/scope/merged_results/icc_56c5535e_6de26c63.ucm
-*I,MERGL2:   Data : cov_work/scope/merged_results/icc_56c5535e_6de26c63.ucd
+*I,MERGL2:   Model: cov_work/scope/merged_results/icc_6739ef20_6e414818.ucm
+*I,MERGL2:   Data : cov_work/scope/merged_results/icc_6739ef20_6e414818.ucd
 *I,MERGL1: No Specman coverage databases found in the runs.
 Total conflicts during target model creation: 0
 Total items not merged                      : 0
@@ -21,5 +21,5 @@ Total runs not merged                                 : 0
 *W,REPDEP: This is a legacy report and no future enhancement is planned for this report. It is recommended that you use the 'report_metrics' command and generate a dynamic report.
 name                                     Overall Average      Overall Covered      Code Average         Code Covered         Fsm Average          Fsm Covered          Functional Average   Functional Covered   
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-top                                      88.33%               72.39% (818/1130/5)  80.81%               83.48% (288/345/5)   n/a                  n/a                  95.85%               67.52% (530/785)     
-|--dut                                   83.33%               83.33% (5/6)         83.33%               83.33% (5/6)         n/a                  n/a                  n/a                  n/a                  
+top                                      90.42%               94.96% (1074/1131/5) 80.83%               83.53% (289/346/5)   n/a                  n/a                  100.00%              100.00% (785/785)    
+|--dut                                   100.00%              100.00% (6/6)        100.00%              100.00% (6/6)        n/a                  n/a                  n/a                  n/a                  

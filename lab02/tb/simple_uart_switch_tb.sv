@@ -1,4 +1,4 @@
-//`define DEBUG  // Uncomment to enable debug printing
+`define DEBUG  // Uncomment to enable debug printing
 
 module top;
 
@@ -281,9 +281,9 @@ module top;
         -> monitor_start_evt;
 
         // Send random packets
-        send_random_packets(10000);
+        send_random_packets(32);
 
-        //send_seq_packets(256);
+        //send_seq_packets(16);
 
         // create_and_send_transaction(
         //     8'hFF, 8'h20, mem_table[8'hFF].port,
@@ -558,12 +558,12 @@ module top;
             exp_port = mem_table[addr].port; // Look up expected port from programming table
 
             // Generate biased per-frame bit correctness (0 =dcorrect start, 1 = error)
-            addr_start_v  = (rand_biased_start_bit(0) == 1'b0);
+            addr_start_v  = (rand_biased_start_bit(1) == 1'b0);
             addr_stop_v   = (rand_biased_stop_bit(0)  == 1'b1);
             parity_bit    = rand_biased_parity_bit(addr, 0);
             addr_parity_v = (parity_bit == (^addr));
 
-            data_start_v  = (rand_biased_start_bit(0) == 1'b0);
+            data_start_v  = (rand_biased_start_bit(1) == 1'b0);
             data_stop_v   = (rand_biased_stop_bit(0)  == 1'b1);
             parity_bit    = rand_biased_parity_bit(data, 0);
             data_parity_v = (parity_bit == (^data));
