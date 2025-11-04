@@ -25,8 +25,8 @@
 //      - `reset_dut()` ensures DUT is initialized properly
 //-----------------------------------------------------------------------------
 
-module driver (tb_if tb);
-    import tb_pkg::*;
+module driver (switch_bfm bfm);
+    import fifomult_tb_pkg::*;
 
     //--------------------------------------------------------------------------
     // Main driver process
@@ -39,19 +39,19 @@ module driver (tb_if tb);
         `endif
 
         // UART line idle high (default)
-        tb.sin = 1'b1;
+        bfm.sin = 1'b1;
 
         // Perform two resets to ensure stable DUT outputs
-        reset_dut();
-        reset_dut();
+        bfm.reset_dut();
+        bfm.reset_dut();
 
         // Basic post-reset check — outputs must be idle high
-        assert (tb.sout0 == 1'b1 && tb.sout1 == 1'b1)
+        assert (bfm.sout0 == 1'b1 && bfm.sout1 == 1'b1)
             else begin
                 `ifdef DEBUG
                 $display("[%0t] [DRV] sout0 or sout1 not 1'b1 after reset", $time);
                 `endif
-                tb.test_result = TEST_FAILED;
+                bfm.test_result = TEST_FAILED;
             end
 
         //--------------------------------------------------------------------------
@@ -59,7 +59,7 @@ module driver (tb_if tb);
         //--------------------------------------------------------------------------
         forever begin
             // Wait for a transaction from the generator
-            tb.gen2drv_mb.get(tr);
+            bfm.gen2drv_mb.get(tr);
 
             // Stop condition (end of simulation)
             if (tr.finish_sim) begin
@@ -76,10 +76,10 @@ module driver (tb_if tb);
             `endif
 
             // Drive DUT
-            tb.prog = tr.prog;
-            uart_send_frame(tr.switch_packet.addr, tb.sin);  // Send address frame
-            uart_send_frame(tr.switch_packet.data, tb.sin);  // Send data frame
-            tb.prog = 0;                                    // Disable programming after packet
+            bfm.prog = tr.prog;
+            bfm.uart_send_frame(tr.switch_packet.addr, bfm.sin);  // Send address frame
+            bfm.uart_send_frame(tr.switch_packet.data, bfm.sin);    // Send data frame
+            bfm.prog = 0;                                           // Disable programming after packet
         end
 
         //--------------------------------------------------------------------------
@@ -91,55 +91,6 @@ module driver (tb_if tb);
     end
 
 
-    //--------------------------------------------------------------------------
-    // Task: uart_send_frame
-    // Sends one UART frame bit-by-bit synchronized with tb.clk
-    // start -> 8 data bits -> parity -> stop
-    //--------------------------------------------------------------------------
-    task automatic uart_send_frame(
-        input uart_frame_t frame,
-        ref logic sin
-    );
-        int i;
-        // Start bit
-        sin = frame.start;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-
-        // 8 data bits (LSB first)
-        for (i = 0; i < 8; i++) begin
-            sin = frame.data[i];
-            repeat(CLKS_PER_BIT) @(posedge tb.clk);
-        end
-
-        // Parity bit
-        sin = frame.parity;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-
-        // Stop bit
-        sin = frame.stop;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-    endtask
-
-
-    //--------------------------------------------------------------------------
-    // Task: reset_dut
-    // Performs synchronous reset on DUT and waits for it to stabilize
-    //--------------------------------------------------------------------------
-    task automatic reset_dut();
-    begin
-        `ifdef DEBUG
-        $display("[%0t] [DRV] ----------- DUT reset start -----------", $time);
-        `endif
-
-        tb.rst_n = 0;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-        tb.rst_n = 1;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-
-        `ifdef DEBUG
-        $display("[%0t] [DRV] ----------- DUT reset done -----------", $time);
-        `endif
-    end
-    endtask
+    
 
 endmodule : driver

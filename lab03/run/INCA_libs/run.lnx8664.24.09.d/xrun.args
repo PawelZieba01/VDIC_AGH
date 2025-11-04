@@ -22,6 +22,6 @@ all
 -covoverwrite
 -covfile
 xrun_covfile.txt
-+UVM_TESTNAME=lab02_example
++UVM_TESTNAME=lab03
 -l
-xrun_test_lab02_example.log
+xrun_test_lab03.log

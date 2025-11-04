@@ -30,8 +30,8 @@
 //      - Debug messages are available if `DEBUG` macro is defined
 //-----------------------------------------------------------------------------
 
-module tp_gen (tb_if tb);
-    import tb_pkg::*;
+module tp_gen (switch_bfm bfm);
+    import fifomult_tb_pkg::*;
 
     //--------------------------------------------------------------------------
     // Main generator initial block
@@ -39,7 +39,7 @@ module tp_gen (tb_if tb);
     initial begin : tp_gen_blk
         static uart_transaction_t tr_finish = '{default:0};
 
-        tb.prog_pkt_count = 0;
+        bfm.prog_pkt_count = 0;
 
         `ifdef DEBUG
         $display("------------ TP_GEN START ------------");
@@ -47,21 +47,22 @@ module tp_gen (tb_if tb);
         `endif
 
         // Wait for DUT reset and UART line stabilization
-        repeat (50*CLKS_PER_BIT) @(posedge tb.clk);
+        repeat (50*CLKS_PER_BIT) @(posedge bfm.clk);
 
         // Step 1: Program DUT with random address-port mapping
         program_dut();
 
         // Step 2: Start monitor
-        -> tb.monitor_start_evt;
+        -> bfm.monitor_start_evt;
 
+        
         // Step 3: Generate and send random UART packets
         send_random_packets(5000);
         // Alternative: send_seq_packets(2000);
 
         // Step 4: Notify scoreboard about simulation end
         tr_finish.finish_sim = 1;
-        tb.gen2sb_mb.put(tr_finish);
+        bfm.gen2sb_mb.put(tr_finish);
     end
 
 
@@ -77,16 +78,16 @@ module tp_gen (tb_if tb);
 
         // Initialize memory table
         for (i = 0; i < 256; i++) begin
-            tb.mem_table[i].addr = i;
-            tb.mem_table[i].port = ($urandom_range(0,1) == 0) ? SOUT0 : SOUT1;
+            bfm.mem_table[i].addr = i[7:0];
+            bfm.mem_table[i].port = ($urandom_range(0,1) == 0) ? SOUT0 : SOUT1;
         end
 
         // Send programming packets
         for (i = 0; i < 256; i++) begin
             create_and_send_transaction(
-                tb.mem_table[i].addr,        // Address
-                tb.mem_table[i].port,        // Port as data
-                tb.mem_table[i].port,        // Expected port
+                bfm.mem_table[i].addr,        // Address
+                bfm.mem_table[i].port,        // Port as data
+                bfm.mem_table[i].port,        // Expected port
                 1'b1, 1'b1, 1'b1,            // addr frame valid
                 1'b1, 1'b1, 1'b1,            // data frame valid
                 1'b1,                        // packet valid
@@ -95,7 +96,7 @@ module tp_gen (tb_if tb);
         end
 
         // Wait proportional to number of programming transactions
-        repeat (tb.prog_pkt_count*44*CLKS_PER_BIT) @(posedge tb.clk);
+        repeat (bfm.prog_pkt_count*44*CLKS_PER_BIT) @(posedge bfm.clk);
 
         `ifdef DEBUG
         $display("[%0t] ----------- Programming DUT done -----------", $time);
@@ -118,7 +119,7 @@ module tp_gen (tb_if tb);
             create_and_send_transaction(
                 addr[7:0],
                 data[7:0],
-                tb.mem_table[addr].port,
+                bfm.mem_table[addr].port,
                 1'b1, 1'b1, 1'b1,
                 1'b1, 1'b1, 1'b1,
                 1'b1, 1'b0
@@ -133,7 +134,7 @@ module tp_gen (tb_if tb);
     //--------------------------------------------------------------------------
     task automatic send_random_packets(input int num_packets);
         int unsigned i;
-        int unsigned addr, data;
+        byte unsigned addr, data;
         uart_port_t exp_port;
         bit addr_start_v, addr_parity_v, addr_stop_v;
         bit data_start_v, data_parity_v, data_stop_v;
@@ -147,7 +148,7 @@ module tp_gen (tb_if tb);
         for (i = 0; i < num_packets; i++) begin
             addr = rand_biased_addr();
             data = rand_biased_byte();
-            exp_port = tb.mem_table[addr].port;
+            exp_port = bfm.mem_table[addr].port;
 
             // Address frame bits (possibly invalid)
             addr_start_v  = (rand_biased_start_bit(1) == 1'b0);
@@ -184,7 +185,7 @@ module tp_gen (tb_if tb);
 
     //--------------------------------------------------------------------------
     // Task: uart_send_frame
-    // Sends UART frame bit-by-bit on 'sin' synchronized with tb.clk
+    // Sends UART frame bit-by-bit on 'sin' synchronized with bfm.clk
     //--------------------------------------------------------------------------
     task automatic uart_send_frame(
         input uart_frame_t frame,
@@ -192,15 +193,15 @@ module tp_gen (tb_if tb);
     );
         int i;
         sin = frame.start;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         for (i = 0; i < 8; i++) begin
             sin = frame.data[i];
-            repeat(CLKS_PER_BIT) @(posedge tb.clk);
+            repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         end
         sin = frame.parity;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         sin = frame.stop;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
     endtask
 
 
@@ -213,10 +214,10 @@ module tp_gen (tb_if tb);
         `ifdef DEBUG
         $display("[%0t] ----------- DUT reset start -----------", $time);
         `endif
-        tb.rst_n = 0;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
-        tb.rst_n = 1;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        bfm.rst_n = 0;
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
+        bfm.rst_n = 1;
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         `ifdef DEBUG
         $display("[%0t] ----------- DUT reset done -----------", $time);
         `endif
@@ -229,8 +230,8 @@ module tp_gen (tb_if tb);
     // Builds a UART transaction and puts it into mailboxes for driver/scoreboard
     //--------------------------------------------------------------------------
     task automatic create_and_send_transaction(
-        input  int unsigned addr,
-        input  int unsigned data,
+        input  byte unsigned addr,
+        input  byte unsigned data,
         input  uart_port_t port,
         input  bit  addr_start_valid,
         input  bit  addr_parity_valid,
@@ -270,12 +271,12 @@ module tp_gen (tb_if tb);
         tr.valid_stop   = addr_stop_valid && data_stop_valid;
 
         // Send to respective mailboxes
-        tb.gen2drv_mb.put(tr);
-        tb.gen2cov_mb.put(tr);
+        bfm.gen2drv_mb.put(tr);
+        bfm.gen2cov_mb.put(tr);
         if (!prog_sig)
-            tb.gen2sb_mb.put(tr);
+            bfm.gen2sb_mb.put(tr);
         else
-            tb.prog_pkt_count++;
+            bfm.prog_pkt_count++;
 
         `ifdef DEBUG
         $display("[%0t] [GEN] Queued packet addr=0x%02h data=0x%02h prog=%0b "
@@ -292,7 +293,7 @@ module tp_gen (tb_if tb);
     // Function: make_uart_frame
     // Creates a valid UART frame with even parity
     //--------------------------------------------------------------------------
-    function automatic uart_frame_t make_uart_frame(input int unsigned data);
+    function automatic uart_frame_t make_uart_frame(input byte unsigned data);
         uart_frame_t frame;
         frame.start  = 0;
         frame.data   = data;
@@ -306,7 +307,7 @@ module tp_gen (tb_if tb);
     // Function: make_switch_packet
     // Creates a two-frame (address + data) UART packet
     //--------------------------------------------------------------------------
-    function automatic switch_packet_t make_switch_packet(int unsigned addr, int unsigned data);
+    function automatic switch_packet_t make_switch_packet(byte unsigned addr, byte unsigned data);
         switch_packet_t pkt;
         pkt.addr = make_uart_frame(addr);
         pkt.data = make_uart_frame(data);
@@ -319,20 +320,24 @@ module tp_gen (tb_if tb);
     //--------------------------------------------------------------------------
 
     // Returns random 8-bit value, biased to 0x00 or 0xFF for edge coverage
-    function automatic int unsigned rand_biased_byte();
+    function automatic byte unsigned rand_biased_byte();
         int r;
-        int unsigned val;
+        byte unsigned val;
+        int unsigned tmp;
         r = $urandom_range(0,9);
         case (r)
             0: val = 8'h00;    // 10% -> 0x00
             1: val = 8'hFF;    // 10% -> 0xFF
-            default: val = $urandom_range(1,254); // 80% -> others
+            default: begin
+                tmp = $urandom_range(1,254); // 80% -> others
+                val = tmp[7:0];
+            end
         endcase
         return val;
     endfunction
 
     // Returns random biased address (same as byte)
-    function automatic int unsigned rand_biased_addr();
+    function automatic byte unsigned rand_biased_addr();
         return rand_biased_byte();
     endfunction
 
@@ -359,7 +364,7 @@ module tp_gen (tb_if tb);
     endfunction
 
     // Random parity bit (even). 30% chance of error unless forced.
-    function automatic bit rand_biased_parity_bit(input int unsigned data, input bit force_correct);
+    function automatic bit rand_biased_parity_bit(input byte unsigned data, input bit force_correct);
         int r;
         bit correct = (^data); // even parity
         if (force_correct) return correct;

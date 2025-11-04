@@ -1,10 +1,12 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 03, 2025 at 16:19:52 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 04, 2025 at 18:36:11 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.svp
-		simple_uart_switch_tb.sv
+		fifomult_tb_pkg.sv
+		switch_bfm.sv
+		top.sv
 		driver.sv
 		monitor.sv
 		scoreboard.sv
@@ -28,7 +30,7 @@ xrun
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Top level design units:
-		tb_pkg
+		fifomult_tb_pkg
 		top
 
 	Extracting FSMs for coverage:
@@ -39,35 +41,37 @@ xrun
 		worklib.coverage
 		worklib.top
 	Total FSMs extracted = 0
-xmelab: *W,COVMLE: (/home/student/pzieba/VDIC/lab03/tb/simple_uart_switch_tb.sv:119):Toggle coverage disabled for object  'mem_table'  across all instances of the module/generate as its size '10240' is greater than the allowed limit '2^10'. You can change the allowed limit for toggle coverage of multi-dimensional objects using  [<max_bits_base2_exponent>] argument of -sv_mda option of set_toggle_scoring  CCF command. The valid values for this option are 10,12,14,16,18,20,22,24.
+xmelab: *W,COVMLE: (/home/student/pzieba/VDIC/lab03/tb/switch_bfm.sv:34):Toggle coverage disabled for object  'mem_table'  across all instances of the module/generate as its size '4096' is greater than the allowed limit '2^10'. You can change the allowed limit for toggle coverage of multi-dimensional objects using  [<max_bits_base2_exponent>] argument of -sv_mda option of set_toggle_scoring  CCF command. The valid values for this option are 10,12,14,16,18,20,22,24.
         static uart_transaction_t tr_finish = '{default:0};
                                                         |
 xmelab: *W,ENUMERR (../tb/tp_gen.sv,40|56): This assignment is a violation of SystemVerilog strong typing rules for enumeration datatypes.
         $write("[%0t] [SB] %sGEN: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
                                                                                                                 |
-xmelab: *W,IGNFMT (../tb/scoreboard.sv,169|112): Illegal width specifier in format ignored (%-0b).
+xmelab: *W,IGNFMT (../tb/scoreboard.sv,170|112): Illegal width specifier in format ignored (%-0b).
         $write("[%0t] [SB] %sMON: %-12s %-12s %-8s %-0b     |     ADDR(s=%b,p=%b,t=%b) DATA(s=%b,p=%b,st=%b)%s\n",
                                                                                                                 |
-xmelab: *W,IGNFMT (../tb/scoreboard.sv,177|112): Illegal width specifier in format ignored (%-0b).
+xmelab: *W,IGNFMT (../tb/scoreboard.sv,178|112): Illegal width specifier in format ignored (%-0b).
 	Building instance overlay tables: ...........
 xmelab: *W,COVEOS: Currently, by default, coverage is scored for expressions containing struct datatypes. For backward compatibility, use " set_backward_compat -no_struct " coverage configuration file command..
 ......... Done
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 	Generating native compiled code:
-		worklib.coverage:sv <0x79762e54>
+		worklib.coverage:sv <0x1397b55c>
 			streams:  10, words: 18766
-		worklib.scoreboard:sv <0x1f3b2cea>
-			streams:   6, words: 35386
-		worklib.monitor:sv <0x3c354057>
-			streams:   9, words: 31078
-		worklib.driver:sv <0x0bcdfe80>
-			streams:   3, words: 13641
-		worklib.tp_gen:sv <0x3e7d93ed>
-			streams:  15, words: 30498
+		worklib.scoreboard:sv <0x176ae7e8>
+			streams:   6, words: 35424
+		worklib.monitor:sv <0x313cdd64>
+			streams:   9, words: 31081
+		worklib.driver:sv <0x315b2710>
+			streams:   1, words:  5061
+		worklib.tp_gen:sv <0x74f72dca>
+			streams:  15, words: 30285
 		worklib.simple_switch_uart:svp <0x1ce55a2a>
 			streams:  13, words: 15555
-		worklib.top:sv <0x77c6231e>
-			streams:   8, words:  6797
+		worklib.top:sv <0x7ea29a63>
+			streams:   7, words:  4050
+		worklib.switch_bfm:sv <0x00d44a6f>
+			streams:   3, words: 11476
 xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables inside structures. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum -sv_struct_with_enum' command in the coverage configuration file.
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
@@ -77,7 +81,7 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 		Modules:                 7       7
 		Interfaces:              1       1
 		Verilog packages:        1       1
-		Registers:             138     139
+		Registers:             139     140
 		Scalar wires:           10       -
 		Named events:            1       1
 		Always blocks:           3       3
@@ -89,4 +93,4 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 		Assertions:              1       1
 		Covergroup Instances:    0       3
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 03, 2025 at 16:19:52 CET  (total: 00:00:00)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 04, 2025 at 18:36:11 CET  (total: 00:00:00)

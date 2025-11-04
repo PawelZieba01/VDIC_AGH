@@ -10,7 +10,9 @@
 -define
 UVM_PLI
 ../tb/../../common/simple_uart_switch.svp
-../tb/simple_uart_switch_tb.sv
+../tb/fifomult_tb_pkg.sv
+../tb/switch_bfm.sv
+../tb/top.sv
 ../tb/driver.sv
 ../tb/monitor.sv
 ../tb/scoreboard.sv

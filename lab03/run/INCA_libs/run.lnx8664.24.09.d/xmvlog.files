@@ -3,7 +3,9 @@
 // Do not modify this file
 //
 /home/student/pzieba/VDIC/common/simple_uart_switch.svp
-/home/student/pzieba/VDIC/lab03/tb/simple_uart_switch_tb.sv
+/home/student/pzieba/VDIC/lab03/tb/fifomult_tb_pkg.sv
+/home/student/pzieba/VDIC/lab03/tb/switch_bfm.sv
+/home/student/pzieba/VDIC/lab03/tb/top.sv
 /home/student/pzieba/VDIC/lab03/tb/driver.sv
 /home/student/pzieba/VDIC/lab03/tb/monitor.sv
 /home/student/pzieba/VDIC/lab03/tb/scoreboard.sv

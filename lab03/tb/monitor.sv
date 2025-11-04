@@ -1,13 +1,14 @@
-module monitor (tb_if tb);
-    import tb_pkg::*;
+
+module monitor (switch_bfm bfm);
+    import fifomult_tb_pkg::*;
     //tb_if tb();
 
     initial begin : monitor_blk
-        tb_pkg::uart_transaction_t tr0, tr1;
+        fifomult_tb_pkg::uart_transaction_t tr0, tr1;
         int timeout_counter;
 
-        @tb.monitor_start_evt;
-        repeat (11*CLKS_PER_BIT) @(posedge tb.clk);
+        @bfm.monitor_start_evt;
+        repeat (11*CLKS_PER_BIT) @(posedge bfm.clk);
 
         `ifdef DEBUG
         $display("[%0t] [MON] Monitor started", $time);
@@ -17,29 +18,29 @@ module monitor (tb_if tb);
             fork
                 begin
                     forever begin
-                        @(negedge tb.sout0 or negedge tb.sout1);
+                        @(negedge bfm.sout0 or negedge bfm.sout1);
                         timeout_counter = 0;
                     end
                 end
 
                 begin
-                    monitor_switch_packet(tb.sout0, "sout0", tr0);
-                    repeat (CLKS_PER_BIT/2) @(posedge tb.clk);
+                    monitor_switch_packet(bfm.sout0, "sout0", tr0);
+                    repeat (CLKS_PER_BIT/2) @(posedge bfm.clk);
                     tr0.port = SOUT0;
-                    tb.mon2sb_mb.put(tr0);
+                    bfm.mon2sb_mb.put(tr0);
                 end
 
                 begin
-                    monitor_switch_packet(tb.sout1, "sout1", tr1);
-                    repeat (CLKS_PER_BIT/2) @(posedge tb.clk);
+                    monitor_switch_packet(bfm.sout1, "sout1", tr1);
+                    repeat (CLKS_PER_BIT/2) @(posedge bfm.clk);
                     tr1.port = SOUT1;
-                    tb.mon2sb_mb.put(tr1);
+                    bfm.mon2sb_mb.put(tr1);
                 end
 
                 begin
                     timeout_counter = 0;
                     forever begin
-                        @(posedge tb.clk);
+                        @(posedge bfm.clk);
                         timeout_counter = timeout_counter + 1;
                         if (timeout_counter >= 22*CLKS_PER_BIT) break;
                     end
@@ -50,7 +51,7 @@ module monitor (tb_if tb);
 
                     tr1.empty_packet = 1'b1;
                     tr1.port = SOUTX;
-                    tb.mon2sb_mb.put(tr1);
+                    bfm.mon2sb_mb.put(tr1);
                 end
             join_any
             disable fork;
@@ -64,15 +65,15 @@ module monitor (tb_if tb);
     );
         int i;
         @(negedge sout);
-        repeat(CLKS_PER_BIT/2) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT/2) @(posedge bfm.clk);
         frame.start = 0;
         for (i = 0; i < 8; i++) begin
-            repeat(CLKS_PER_BIT) @(posedge tb.clk);
+            repeat(CLKS_PER_BIT) @(posedge bfm.clk);
             frame.data[i] = sout;
         end
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         frame.parity = sout;
-        repeat(CLKS_PER_BIT) @(posedge tb.clk);
+        repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         frame.stop = sout;
     endtask
 

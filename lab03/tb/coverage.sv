@@ -18,12 +18,11 @@
 //  Author: PZ
 //  ----------------------------------------------------------------------------
 //  Dependencies:
-//      - tb_pkg.sv (defines uart_transaction_t, constants, macros)
+//      - fifomult_tb_pkg.sv (defines uart_transaction_t, constants, macros)
 //      - tb_if.sv  (interface containing gen2cov_mb and DUT signals)
 // ============================================================================
-
-module coverage (tb_if tb);
-    import tb_pkg::*;
+module coverage (switch_bfm bfm);
+    import fifomult_tb_pkg::*;
 
     // =========================================================================
     //  Coverage storage variables
@@ -116,7 +115,7 @@ module coverage (tb_if tb);
     // =========================================================================
     covergroup reset_cov;
         option.name = "cg_reset";
-        coverpoint tb.rst_n {
+        coverpoint bfm.rst_n {
             bins rst_low2high[] = (0 => 1); // Reset release
             bins rst_high2low[] = (1 => 0); // Reset assertion
         }
@@ -133,7 +132,7 @@ module coverage (tb_if tb);
     //      - Periodically monitors reset signal
     // =========================================================================
     initial begin : coverage_from_generator
-        tb_pkg::uart_transaction_t tr;
+        fifomult_tb_pkg::uart_transaction_t tr;
 
         // Initialize covergroups
         addr_cg      = new();
@@ -146,10 +145,10 @@ module coverage (tb_if tb);
             // ---------------------------------------------------------
             begin
                 // Synchronization delay — allow stimulus setup
-                repeat (50*CLKS_PER_BIT) @(posedge tb.clk);
+                repeat (50*CLKS_PER_BIT) @(posedge bfm.clk);
 
                 forever begin
-                    tb.gen2cov_mb.get(tr);
+                    bfm.gen2cov_mb.get(tr);
 
                     // Extract fields from transaction
                     addr_cov         = tr.switch_packet.addr.data;
@@ -170,7 +169,7 @@ module coverage (tb_if tb);
             // ---------------------------------------------------------
             begin
                 forever begin
-                    @(posedge tb.clk);
+                    @(posedge bfm.clk);
                     reset_cg.sample();
                 end
             end

@@ -1,2 +1,0 @@
-#e1(27Oct2025:18:03:44): source ./xcelium.d/env.d/env.history.27Oct2025_18_03_44
-s1(27Oct2025:18:03:44):  xrun -gui -coverage all +UVM_TESTNAME=lab02_example 

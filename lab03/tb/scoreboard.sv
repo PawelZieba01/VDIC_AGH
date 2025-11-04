@@ -17,34 +17,35 @@
 //  Author: PZ
 //  ----------------------------------------------------------------------------
 //  Dependencies:
-//      - tb_pkg.sv (defines uart_transaction_t, enums, constants, etc.)
+//      - fifomult_tb_pkg.sv (defines uart_transaction_t, enums, constants, etc.)
 //      - tb_if.sv  (interface providing mailboxes and DUT connections)
 // ============================================================================
 
-module scoreboard (tb_if tb);
-    import tb_pkg::*;
+
+module scoreboard (switch_bfm bfm);
+    import fifomult_tb_pkg::*;
 
     // =========================================================================
     //  Main comparison process
     // =========================================================================
     initial begin : scoreboard_blk
-        tb_pkg::uart_transaction_t gen_tr, mon_tr;
-        tb.test_result = TEST_PASSED;
+        fifomult_tb_pkg::uart_transaction_t gen_tr, mon_tr;
+        bfm.test_result = TEST_PASSED;
 
         `ifdef DEBUG
         $display("[%0t] [SB] Scoreboard started", $time);
         `endif
 
         // Wait until both mailboxes are properly initialized
-        wait (tb.gen2sb_mb != null && tb.mon2sb_mb != null);
+        wait (bfm.gen2sb_mb != null && bfm.mon2sb_mb != null);
 
         // ---------------------------------------------------------------------
         // Infinite comparison loop:
         // Continuously compare GEN (expected) and MON (observed) transactions
         // ---------------------------------------------------------------------
         forever begin
-            tb.gen2sb_mb.get(gen_tr);
-            tb.mon2sb_mb.get(mon_tr);
+            bfm.gen2sb_mb.get(gen_tr);
+            bfm.mon2sb_mb.get(mon_tr);
 
             // Handle simulation finish request
             if (gen_tr.finish_sim) begin
@@ -72,7 +73,7 @@ module scoreboard (tb_if tb);
             // ---------------------------------------------------------------
             if (gen_tr.valid == 1'b0) begin
                 if (!mon_tr.empty_packet) begin
-                    tb.test_result = TEST_FAILED;
+                    bfm.test_result = TEST_FAILED;
                     `ifdef DEBUG
                     $display("[%0t] [SB] ERROR: GEN marked packet INVALID but MON provided a non-empty packet", $time);
                     `endif
@@ -86,7 +87,7 @@ module scoreboard (tb_if tb);
             // ---------------------------------------------------------------
             else begin
                 if (mon_tr.empty_packet) begin
-                    tb.test_result = TEST_FAILED;
+                    bfm.test_result = TEST_FAILED;
                     `ifdef DEBUG
                     $display("[%0t] [SB] ERROR: GEN marked packet VALID but MON reported EMPTY packet", $time);
                     `endif
@@ -106,7 +107,7 @@ module scoreboard (tb_if tb);
                         (gen_tr.switch_packet.data.start != mon_tr.switch_packet.data.start) ||
                         (gen_tr.switch_packet.data.parity!= mon_tr.switch_packet.data.parity)||
                         (gen_tr.switch_packet.data.stop  != mon_tr.switch_packet.data.stop)) begin
-                        tb.test_result = TEST_FAILED;
+                        bfm.test_result = TEST_FAILED;
                         print_mismatch(gen_tr, mon_tr);
                     end
                 end
@@ -187,7 +188,7 @@ module scoreboard (tb_if tb);
     //  Final phase: print test result (PASS / FAIL) with color
     // =========================================================================
     final begin
-        print_test_result(tb.test_result);
+        print_test_result(bfm.test_result);
     end
 
 

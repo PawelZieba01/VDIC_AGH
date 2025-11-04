@@ -1,10 +1,12 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 03, 2025 at 16:19:51 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 04, 2025 at 18:36:10 CET
 xrun
 	-compile
 	-l xrun_compile.log
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.svp
-		simple_uart_switch_tb.sv
+		fifomult_tb_pkg.sv
+		switch_bfm.sv
+		top.sv
 		driver.sv
 		monitor.sv
 		scoreboard.sv
@@ -28,11 +30,13 @@ xrun
 file: ../tb/../../common/simple_uart_switch.svp
 	module worklib.simple_switch_uart:svp
 		errors: 0, warnings: 0
-file: ../tb/simple_uart_switch_tb.sv
-	package worklib.tb_pkg:sv
+file: ../tb/fifomult_tb_pkg.sv
+	package worklib.fifomult_tb_pkg:sv
 		errors: 0, warnings: 0
-	interface worklib.tb_if:sv
+file: ../tb/switch_bfm.sv
+	interface worklib.switch_bfm:sv
 		errors: 0, warnings: 0
+file: ../tb/top.sv
 	module worklib.top:sv
 		errors: 0, warnings: 0
 file: ../tb/driver.sv
@@ -53,4 +57,4 @@ xmvlog: *W,ENUMERR (../tb/tp_gen.sv,40|56): This assignment is a violation of Sy
 file: ../tb/coverage.sv
 	module worklib.coverage:sv
 		errors: 0, warnings: 0
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 03, 2025 at 16:19:52 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 04, 2025 at 18:36:11 CET  (total: 00:00:01)

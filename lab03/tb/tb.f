@@ -1,5 +1,7 @@
 ../../common/simple_uart_switch.svp
-simple_uart_switch_tb.sv
+fifomult_tb_pkg.sv
+switch_bfm.sv
+top.sv
 driver.sv
 monitor.sv
 scoreboard.sv
