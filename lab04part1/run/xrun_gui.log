@@ -1,0 +1,74 @@
+TOOL:	xrun(64)	24.09-s005: Started on Nov 04, 2025 at 19:10:45 CET
+xrun
+	-F ../tb/tb.f
+		lab04part1.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs_gui
+	+access+r
+	+gui
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+	+UVM_TESTNAME=lab04example
+	-l xrun_gui.log
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x28ceea4d
+		test
+
+	Extracting FSMs for coverage:
+		worklib.test
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.test:sv <0x376e72fb>
+			streams:   1, words:  2297
+		worklib.\$unit_0x28ceea4d :compilation_unit <0x1e59524f>
+			streams:  16, words:  9669
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Registers:                 21      23
+		Initial blocks:             1       1
+		Compilation units:          1       1
+		SV Class declarations:      2       2
+		SV Class specializations:   2       2
+	Writing initial simulation snapshot: worklib.test:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/xcelium/files/xmsimrc
+xcelium> source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> ^C
+xcelium> exit
+xmsim: *W,NORUNCMD: No 'run' command issued.
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  test(test)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_10ccd628_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_10ccd628_00000000.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 04, 2025 at 19:10:56 CET  (total: 00:00:11)

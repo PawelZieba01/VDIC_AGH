@@ -1,0 +1,50 @@
+TOOL:	xrun(64)	24.09-s005: Started on Nov 11, 2025 at 04:16:40 CET
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		lab04part1.sv
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x28ceea4d
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.top:sv <0x7c480627>
+			streams:  13, words: 20603
+		worklib.\$unit_0x28ceea4d :compilation_unit <0x60b64bae>
+			streams:  44, words: 34313
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Registers:                 91      93
+		Initial blocks:             3       3
+		Compilation units:          1       1
+		SV Class declarations:      7       7
+		SV Class specializations:   7       7
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 11, 2025 at 04:16:42 CET  (total: 00:00:02)

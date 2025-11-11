@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(04Nov2025:19:10:44):( xrun -compile -l xrun_compile.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt )&&(./INCA_libs_gui/env.d/env.history.04Nov2025_19_10_44)
+s2::(04Nov2025:19:10:45):( xrun -elaborate -l xrun_elaborate.log -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt )&&(./INCA_libs_gui/env.d/env.history.04Nov2025_19_10_45)
+s3::(04Nov2025:19:10:45):( xrun -F ../tb/tb.f -v93 +nowarnDSEM2009 +nowarnDSEMEL +nowarnCGDEFN +nowarnCOVUTA +nowarnBADPRF +nowarnXCLGNOPTM +nowarnRNDXCELON +nowarnSAWSTP -xmlibdirname INCA_libs_gui +access+r +gui +overwrite -nocopyright -coverage all -covoverwrite -covfile xrun_covfile.txt +UVM_TESTNAME=lab04example -l xrun_gui.log )&&(./INCA_libs_gui/env.d/env.history.04Nov2025_19_10_45)
