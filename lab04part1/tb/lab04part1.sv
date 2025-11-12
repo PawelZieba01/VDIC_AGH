@@ -231,7 +231,7 @@ class shape_factory;
     static function bit is_rectangle(real p[$][2]);
         real dx, dy;
         dx = abs_func(p[1][0] - p[0][0]);
-        dy = abs_func(p[1][1] - p[0][1]);
+        dy = abs_func(p[1][1] - p[0][1]); 
 
         if (dx != 0 && dy != 0)
             return 1;
@@ -302,39 +302,35 @@ module top;
 
         values.delete();
         $display("Parsing line: '%s'", line);
+        // Scan for floating point numbers
+            begin
+                automatic string num_str;
+                for (int i = 0; i < line.len(); i++) begin
+                    // Skip whitespace
+                    while (i < line.len() && (line[i] inside {" ", "\t", "\n", "\r"})) begin
+                        i++;
+                    end
 
-        while (line.len() > 0) begin
-            // znajdź pierwszą spację
-            sp = -1;
-            for (int i = 0; i < line.len(); i++) begin
-                if (line.getc(i) == " ") begin
-                    sp = i;
-                    break;
+                    if (i >= line.len()) break;
+
+                    // Extract number
+                    num_str = "";
+
+                    // Read the number (including sign and decimal point)
+                    while (i < line.len() && (line[i] inside {"-", "."} || line[i] inside {["0" : "9"]})) begin
+                        num_str = {num_str, line[i]};
+                        i++;
+                    end
+
+                    if (num_str.len() > 0) begin
+                        values.push_back(num_str.atoreal());
+                    end
+
+                    i--; // Adjust for loop increment
                 end
             end
 
-            // wyodrębnij token
-            if (sp >= 0)
-                token = line.substr(0, sp);
-            else
-                token = line;
-
-            // spróbuj sparsować token
-            if ($sscanf(token, "%g", val) == 1)
-                values.push_back(val);
-
-            // usuń przetworzony token i spację (jeśli była)
-            if (sp >= 0)
-                line = line.substr(sp + 1, line.len() - sp);
-            else
-                break;
-
             $display("Remaining line: '%s'", line);
-        end
     endfunction
-
-
-
-
 
 endmodule
