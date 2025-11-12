@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 13:25:38 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 13:53:45 CET
 xrun
 	-compile
 	-l xrun_compile.log
@@ -54,4 +54,4 @@ xmvlog: *W,ENUMERR (../tb/tb_classes/tp_gen.svh,29|56): This assignment is a vio
 xmvlog: *W,BADTIF (../tb/tb_classes/testbench.svh,91|16): a function cannot enable a task [10.3.4(IEEE)].
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 2
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 13:25:39 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 13:53:46 CET  (total: 00:00:01)

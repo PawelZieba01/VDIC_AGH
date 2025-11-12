@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 11, 2025 at 04:16:39 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 14:01:36 CET
 xrun
 	-compile
 	-l xrun_compile.log
@@ -22,4 +22,4 @@ xrun
 file: ../tb/lab04part1.sv
 	module worklib.top:sv
 		errors: 0, warnings: 0
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 11, 2025 at 04:16:40 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 14:01:36 CET  (total: 00:00:00)

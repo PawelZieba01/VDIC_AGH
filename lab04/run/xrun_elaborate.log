@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 13:25:39 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 13:53:46 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -588,4 +588,4 @@ xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemveril
 		SV Class declarations:       6       6
 		SV Class specializations:    6       6
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 13:25:39 CET  (total: 00:00:00)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 13:53:46 CET  (total: 00:00:00)
