@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 04, 2025 at 18:36:11 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 15:18:27 CET
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.svp
@@ -113,4 +113,4 @@ coverage setup:
 coverage files:
   model(design data) :  ./cov_work/scope/icc_0bf1e500_7c9c60bd.ucm
   data               :  ./cov_work/scope/test/icc_0bf1e500_7c9c60bd.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 04, 2025 at 18:36:15 CET  (total: 00:00:04)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 15:18:31 CET  (total: 00:00:04)

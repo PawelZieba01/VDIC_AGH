@@ -1,8 +1,8 @@
 1760080842 /home/student/pzieba/VDIC/common/simple_uart_switch.svp
 1762274887 /home/student/pzieba/VDIC/lab03/tb/fifomult_tb_pkg.sv
 1762277767 /home/student/pzieba/VDIC/lab03/tb/switch_bfm.sv
-1762277753 /home/student/pzieba/VDIC/lab03/tb/top.sv
-1762277220 /home/student/pzieba/VDIC/lab03/tb/driver.sv
+1762277872 /home/student/pzieba/VDIC/lab03/tb/top.sv
+1762278040 /home/student/pzieba/VDIC/lab03/tb/driver.sv
 1762277200 /home/student/pzieba/VDIC/lab03/tb/monitor.sv
 1762277190 /home/student/pzieba/VDIC/lab03/tb/scoreboard.sv
 1762277489 /home/student/pzieba/VDIC/lab03/tb/tp_gen.sv

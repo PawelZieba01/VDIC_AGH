@@ -1,4 +1,4 @@
- `define DEBUG
+ //`define DEBUG
 
 // ================================================================
 // ============ ABS FUNC =========================================
@@ -301,7 +301,7 @@ module top;
         string token;
 
         values.delete();
-        $display("Parsing line: '%s'", line);
+        //$display("Parsing line: '%s'", line);
         // Scan for floating point numbers
             begin
                 automatic string num_str;
@@ -330,7 +330,7 @@ module top;
                 end
             end
 
-            $display("Remaining line: '%s'", line);
+            //$display("Remaining line: '%s'", line);
     endfunction
 
 endmodule

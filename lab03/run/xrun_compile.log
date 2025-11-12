@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 04, 2025 at 18:36:10 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 15:18:25 CET
 xrun
 	-compile
 	-l xrun_compile.log
@@ -57,4 +57,4 @@ xmvlog: *W,ENUMERR (../tb/tp_gen.sv,40|56): This assignment is a violation of Sy
 file: ../tb/coverage.sv
 	module worklib.coverage:sv
 		errors: 0, warnings: 0
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 04, 2025 at 18:36:11 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 15:18:26 CET  (total: 00:00:01)
