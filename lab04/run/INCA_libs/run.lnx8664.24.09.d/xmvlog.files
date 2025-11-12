@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+/home/student/pzieba/VDIC/common/simple_uart_switch.svp
+/home/student/pzieba/VDIC/lab04/tb/fifomult_tb_pkg.sv
+/home/student/pzieba/VDIC/lab04/tb/switch_bfm.sv
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/driver.svh
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/monitor.svh
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/scoreboard.svh
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/tp_gen.svh
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/coverage.svh
+/home/student/pzieba/VDIC/lab04/tb/tb_classes/testbench.svh
+/home/student/pzieba/VDIC/lab04/tb/top.sv
