@@ -1,0 +1,6 @@
+./coverage.svh
+./tp_gen.svh
+./scoreboard.svh
+./monitor.svh
+./driver.svh
+./testbench.svh

@@ -1,10 +1,4 @@
-1762949246 /home/student/pzieba/VDIC/lab04/tb/fifomult_tb_pkg.sv
-1762947848 /home/student/pzieba/VDIC/lab04/tb/switch_bfm.sv
-1762948512 /home/student/pzieba/VDIC/lab04/tb/top.sv
+1762970330 /home/student/pzieba/VDIC/lab04/tb/fifomult_tb_pkg.sv
+1762970056 /home/student/pzieba/VDIC/lab04/tb/switch_bfm.sv
+1762969975 /home/student/pzieba/VDIC/lab04/tb/top.sv
 1760080842 /home/student/pzieba/VDIC/common/simple_uart_switch.svp
-1762949149 /home/student/pzieba/VDIC/lab04/tb/tb_classes/monitor.svh
-1762948594 /home/student/pzieba/VDIC/lab04/tb/tb_classes/driver.svh
-1762949213 /home/student/pzieba/VDIC/lab04/tb/tb_classes/scoreboard.svh
-1762949296 /home/student/pzieba/VDIC/lab04/tb/tb_classes/tp_gen.svh
-1762949398 /home/student/pzieba/VDIC/lab04/tb/tb_classes/testbench.svh
-1762947924 /home/student/pzieba/VDIC/lab04/tb/tb_classes/coverage.svh

@@ -3,11 +3,16 @@
 // Do not modify this file
 //
 xmcmds
+xmnowarn IGNFMT
 xmnowarn XCLGNOPTM
+xmnowarn COVNOEN
+xmnowarn CUVIHR
 xmnowarn RNDXCELON
 xmnowarn DSEMEL
 xmnowarn DSEM2009
 xmnowarn CGDEFN
+xmnowarn COVMLE
 xmnowarn SAWSTP
 xmnowarn BADPRF
+xmnowarn ENUMERR
 xmnowarn COVUTA

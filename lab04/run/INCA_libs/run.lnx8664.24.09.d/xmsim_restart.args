@@ -4,6 +4,9 @@
 //
 -INPUT
 "@source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
++incdir+tb_classes
++incdir+.
++nowarn+DSEMEL
 +nowarnDSEM2009
 +nowarnDSEMEL
 +nowarnCGDEFN
@@ -12,12 +15,19 @@
 +nowarnXCLGNOPTM
 +nowarnRNDXCELON
 +nowarnSAWSTP
++nowarnCUVIHR
++nowarnIGNFMT
++nowarnENUMERR
++nowarnCOVMLE
++nowarnCOVNOEN
 -amsdlibdir
 ./INCA_libs/AMSD
 -uvmhome
 /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d
 -sv_lib
 /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+-NOWARN
+DSEMEL
 -NOWARN
 DSEM2009
 -NOWARN
@@ -34,6 +44,16 @@ XCLGNOPTM
 RNDXCELON
 -NOWARN
 SAWSTP
+-NOWARN
+CUVIHR
+-NOWARN
+IGNFMT
+-NOWARN
+ENUMERR
+-NOWARN
+COVMLE
+-NOWARN
+COVNOEN
 -NOCOPYRIGHT
 -COVOVERWRITE
 +UVM_TESTNAME=lab03
@@ -44,7 +64,7 @@ SAWSTP
 +EMGRLOG
 xrun_test_lab03.log
 -XLSTIME
-1762952027
+1762970772
 -XLKEEP
 -XLMODE
 ./INCA_libs/run.lnx8664.24.09.d
@@ -58,4 +78,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	24.09-s005"
 -XLNAME
-./INCA_libs/run.lnx8664.24.09.d/cadence25_25836
+./INCA_libs/run.lnx8664.24.09.d/cadence29_15572

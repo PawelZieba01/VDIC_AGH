@@ -2,6 +2,9 @@
 // File created by:  xrun
 // Do not modify this file
 //
++incdir+tb_classes
++incdir+.
++nowarn+DSEMEL
 +nowarnDSEM2009
 +nowarnDSEMEL
 +nowarnCGDEFN
@@ -10,10 +13,19 @@
 +nowarnXCLGNOPTM
 +nowarnRNDXCELON
 +nowarnSAWSTP
++nowarnCUVIHR
++nowarnIGNFMT
++nowarnENUMERR
++nowarnCOVMLE
++nowarnCOVNOEN
 -amsdlibdir
 ./INCA_libs/AMSD
 -loadpli
 /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so:uvm_pli_boot
+-NOWARN
+DSEMEL
+-timescale
+1ns/1ps
 -V93
 -NOWARN
 DSEM2009
@@ -31,6 +43,16 @@ XCLGNOPTM
 RNDXCELON
 -NOWARN
 SAWSTP
+-NOWARN
+CUVIHR
+-NOWARN
+IGNFMT
+-NOWARN
+ENUMERR
+-NOWARN
+COVMLE
+-NOWARN
+COVNOEN
 -XMLIBDIRNAME
 INCA_libs
 -NOCOPYRIGHT
