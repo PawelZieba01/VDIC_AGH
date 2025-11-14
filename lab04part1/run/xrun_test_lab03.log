@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 17:01:31 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 14, 2025 at 05:05:11 CET
 xrun
 	-F ../tb/tb.f
 		lab04part1.sv
@@ -34,10 +34,10 @@ xmelab: *W,COVEOI: Currently, by default, expression coverage is not scored for 
  Done
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 	Generating native compiled code:
-		worklib.top:sv <0x2dcd4fce>
-			streams:  13, words: 16742
-		worklib.\$unit_0x28ceea4d :compilation_unit <0x60b64bae>
-			streams:  44, words: 34313
+		worklib.top:sv <0x3d5d90d3>
+			streams:  13, words: 16744
+		worklib.\$unit_0x28ceea4d :compilation_unit <0x0432b331>
+			streams:  45, words: 40532
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
 	Loading native compiled code:     .................... Done
@@ -242,7 +242,7 @@ Area is: 8.00
 --------------------------------------------------------------------------------
 This is: circle
  (0.00, 0.00)
- (1.00, 1.00)
+ radius: 1.41
 Area is: 6.28
 --------------------------------------------------------------------------------
 ==========================================
@@ -292,13 +292,13 @@ Area is: 8.00
 --------------------------------------------------------------------------------
 This is: circle
  (0.00, 0.00)
- (1.00, 1.00)
+ radius: 1.41
 Area is: 6.28
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 This is: circle
  (-10.00, 1.00)
- (1.20, 1.00)
+ radius: 11.20
 Area is: 394.08
 --------------------------------------------------------------------------------
 ==========================================
@@ -348,19 +348,19 @@ Area is: 8.00
 --------------------------------------------------------------------------------
 This is: circle
  (0.00, 0.00)
- (1.00, 1.00)
+ radius: 1.41
 Area is: 6.28
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 This is: circle
  (-10.00, 1.00)
- (1.20, 1.00)
+ radius: 11.20
 Area is: 394.08
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 This is: circle
  (1.00, 5.00)
- (1.00, 10.00)
+ radius: 5.00
 Area is: 78.54
 --------------------------------------------------------------------------------
 ==========================================
@@ -379,4 +379,4 @@ coverage setup:
 coverage files:
   model(design data) :  ./cov_work/scope/icc_6c90531a_00000000.ucm
   data               :  ./cov_work/scope/test/icc_6c90531a_00000000.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 17:01:33 CET  (total: 00:00:02)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 14, 2025 at 05:05:13 CET  (total: 00:00:02)

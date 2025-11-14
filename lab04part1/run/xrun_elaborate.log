@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Nov 12, 2025 at 17:01:30 CET
+TOOL:	xrun(64)	24.09-s005: Started on Nov 14, 2025 at 05:05:10 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -33,10 +33,10 @@ xmelab: *W,COVEOI: Currently, by default, expression coverage is not scored for 
  Done
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 	Generating native compiled code:
-		worklib.top:sv <0x2dcd4fce>
-			streams:  13, words: 16742
-		worklib.\$unit_0x28ceea4d :compilation_unit <0x60b64bae>
-			streams:  44, words: 34313
+		worklib.top:sv <0x3d5d90d3>
+			streams:  13, words: 16744
+		worklib.\$unit_0x28ceea4d :compilation_unit <0x0432b331>
+			streams:  45, words: 40532
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
 	Loading native compiled code:     .................... Done
@@ -49,4 +49,4 @@ xmelab: *W,COVEOI: Currently, by default, expression coverage is not scored for 
 		SV Class declarations:      7       7
 		SV Class specializations:   7       7
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Nov 12, 2025 at 17:01:31 CET  (total: 00:00:01)
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 14, 2025 at 05:05:11 CET  (total: 00:00:01)
