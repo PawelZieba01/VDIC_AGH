@@ -5,20 +5,20 @@
 //  the verification components. It acts as a central hub for communication.
 // ============================================================================
 
-
+import fifomult_tb_pkg::*;
 interface switch_bfm();
-    import fifomult_tb_pkg::*;
+    
 
     // DUT I/O lines
     logic clk;
-    logic rst_n;
+    logic rst_n; 
     logic prog;
     logic sin;
     logic sout0;
-    logic sout1;
-
+    logic sout1;  
+ 
     // Shared test result (visible to all blocks)
-    test_result_t test_result;
+    test_result_t test_result; 
 
     // Inter-component mailboxes
     mailbox #(uart_transaction_t) gen2drv_mb;  // Generator → Driver

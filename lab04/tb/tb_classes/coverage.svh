@@ -10,9 +10,9 @@
 //      - Samples covergroups for various DUT behaviors
 //      - Reports final coverage summary at simulation end
 // ============================================================================
-import fifomult_tb_pkg::*;
-class coverage;
-   
+
+class coverage; 
+     
 
     // Handle do interfejsu BFM
     virtual switch_bfm bfm;
@@ -103,12 +103,12 @@ class coverage;
     //  Główna funkcja execute() — uruchamia procesy pokrycia
     // =========================================================================
     function void execute();
-        fork
+        fork 
             begin : coverage_from_generator
-                fifomult_tb_pkg::uart_transaction_t tr;
+                fifomult_tb_pkg::uart_transaction_t tr; 
 
                 // Synchronizacja — początkowe opóźnienie
-                repeat (50*CLKS_PER_BIT) @(posedge bfm.clk);
+                repeat (50*CLKS_PER_BIT) @(posedge bfm.clk);    
 
                 forever begin
                     bfm.gen2cov_mb.get(tr);

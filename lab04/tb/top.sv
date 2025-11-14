@@ -4,11 +4,12 @@
 //  Object-oriented top-level testbench module that creates the DUT and
 //  launches the testbench class.
 // ============================================================================
-
+import fifomult_tb_pkg::*;
 module top;
-    import fifomult_tb_pkg::*;
+     
+        
 
-    // Shared interface
+    // Shared interface 
     switch_bfm bfm();
 
     // Device Under Test
@@ -21,24 +22,12 @@ module top;
         .sout1  (bfm.sout1)
     );
 
-    // Testbench object handle
+    // Testbench object handle 
     testbench tb;
 
-    // // Clock generation
-    // initial begin
-    //     bfm.clk = 0;
-    //     forever #5 bfm.clk = ~bfm.clk;  // 100 MHz clock
-    // end
-
-    // // Reset sequence
-    // initial begin
-    //     bfm.rst_n = 0;
-    //     repeat (10) @(posedge bfm.clk);
-    //     bfm.rst_n = 1;
-    // end
 
     // Main simulation flow
-    initial begin
+    initial begin 
         tb = new(bfm);     // create environment
         tb.run_test();     // start all components
     end

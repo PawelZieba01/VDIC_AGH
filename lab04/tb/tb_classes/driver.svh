@@ -5,7 +5,6 @@
 //      Drives the DUT UART input line (`sin`) using transactions from generator.
 //      Uses execute() as main entry point.
 // ============================================================================
-import fifomult_tb_pkg::*;
 class driver;
    
 
@@ -13,7 +12,7 @@ class driver;
     virtual switch_bfm bfm; 
 
     // Konstruktor
-    function new(virtual switch_bfm bfm);
+    function new(virtual switch_bfm bfm); 
         this.bfm = bfm;
     endfunction
 
@@ -43,7 +42,7 @@ class driver;
                         `ifdef DEBUG
                         $display("[%0t] [DRV] sout0 or sout1 not 1'b1 after reset", $time);
                         `endif
-                        bfm.test_result = TEST_FAILED;
+                        bfm.test_result = TEST_FAILED; 
                     end
 
                 //----------------------------------------------------------------------

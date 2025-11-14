@@ -18,21 +18,20 @@
 //        - Spawn and manage execution threads
 //        - Handle test start and completion
 // ============================================================================
-import fifomult_tb_pkg::*;
+
 class testbench;
 
     
-
     // Shared interface
     virtual switch_bfm bfm;
 
-    // Environment components
+    // Environment components 
     tp_gen     gen;
     driver     drv;
     monitor    mon;
-    scoreboard sb;
-    coverage   cov;
-
+    scoreboard sb; 
+    coverage   cov; 
+ 
     // =========================================================================
     //  Constructor — initializes interface and allocates mailboxes
     // =========================================================================

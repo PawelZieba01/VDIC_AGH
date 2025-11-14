@@ -8,15 +8,13 @@
 //      Converted from module to class form, with identical functionality.
 //      The execute() task replaces the original 'initial begin' block.
 //-----------------------------------------------------------------------------
-import fifomult_tb_pkg::*;
 class tp_gen;
-
     
 
     // Reference to the BFM (was module port)
     virtual switch_bfm bfm;
 
-    // Constructor
+    // Constructor 
     function new(virtual switch_bfm bfm); 
         this.bfm = bfm;
     endfunction
@@ -38,7 +36,7 @@ class tp_gen;
         // Wait for DUT reset and UART line stabilization
         repeat (50*CLKS_PER_BIT) @(posedge bfm.clk);
 
-        // Step 1: Program DUT with random address-port mapping
+        // Step 1: Program DUT with random address-port mapping 
         program_dut();
 
         // Step 2: Start monitor

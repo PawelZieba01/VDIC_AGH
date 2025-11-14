@@ -5,7 +5,6 @@
 //      Converted from module form with identical behavior.
 //      Uses execute() as main entry point.
 // ============================================================================
-import fifomult_tb_pkg::*;
 class monitor;
 
     
@@ -15,7 +14,7 @@ class monitor;
 
     // Constructor
     function new(virtual switch_bfm bfm);
-        this.bfm = bfm;
+        this.bfm = bfm; 
     endfunction
 
 
@@ -32,7 +31,7 @@ class monitor;
                 repeat (11*CLKS_PER_BIT) @(posedge bfm.clk);
 
                 `ifdef DEBUG
-                $display("[%0t] [MON] Monitor started", $time);
+                $display("[%0t] [MON] Monitor started", $time); 
                 `endif
 
                 forever begin

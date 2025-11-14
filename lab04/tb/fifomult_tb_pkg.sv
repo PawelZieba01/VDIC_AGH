@@ -4,7 +4,6 @@
 // ----------------------------------------------------------------------------
 //`define DEBUG
 package fifomult_tb_pkg;
-    
     // UART protocol timing constant
     localparam int CLKS_PER_BIT = 16;
 
@@ -16,7 +15,7 @@ package fifomult_tb_pkg;
 
     // Text color formatting for pretty console output
     typedef enum {
-        COLOR_BOLD_BLACK_ON_GREEN,
+        COLOR_BOLD_BLACK_ON_GREEN, 
         COLOR_BOLD_BLACK_ON_RED,
         COLOR_BOLD_BLACK_ON_YELLOW,
         COLOR_BOLD_BLUE_ON_WHITE,
@@ -62,5 +61,12 @@ package fifomult_tb_pkg;
         bit              finish_sim;     // end-of-sim signal
         uart_port_t      port;           // expected output port
     } uart_transaction_t;
+
+    `include "coverage.svh"
+    `include "tp_gen.svh"
+    `include "scoreboard.svh"
+    `include "monitor.svh"
+    `include "driver.svh"
+    `include "testbench.svh"
 
 endpackage : fifomult_tb_pkg

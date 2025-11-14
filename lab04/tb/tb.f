@@ -1,10 +1,8 @@
 ../../common/simple_uart_switch.svp
 fifomult_tb_pkg.sv
 switch_bfm.sv
-tb_classes/driver.svh
-tb_classes/monitor.svh
-tb_classes/scoreboard.svh
-tb_classes/tp_gen.svh
-tb_classes/coverage.svh
-tb_classes/testbench.svh
-top.sv
+top.sv 
++incdir+tb_classes
++incdir+.
++nowarn+DSEMEL
+-timescale 1ns/1ps

@@ -5,16 +5,15 @@
 //      Converted from module form with identical behavior.
 //      Uses execute() as main entry point.
 // ============================================================================
-import fifomult_tb_pkg::*;
-class scoreboard;
 
+class scoreboard;
     
 
     // Handle to the testbench BFM interface
     virtual switch_bfm bfm;
 
     // Constructor
-    function new(virtual switch_bfm bfm);  
+    function new(virtual switch_bfm bfm);   
         this.bfm = bfm;
     endfunction
 
@@ -26,8 +25,8 @@ class scoreboard;
         fork
             automatic fifomult_tb_pkg::uart_transaction_t gen_tr, mon_tr;
             begin : scoreboard_blk
-                bfm.test_result = TEST_PASSED;
-
+                bfm.test_result = TEST_PASSED; 
+ 
                 `ifdef DEBUG
                 $display("[%0t] [SB] Scoreboard started", $time);
                 `endif
@@ -153,15 +152,15 @@ class scoreboard;
             mon_tr.switch_packet.addr.start, mon_tr.switch_packet.addr.parity, mon_tr.switch_packet.addr.stop,
             mon_tr.switch_packet.data.start, mon_tr.switch_packet.data.parity, mon_tr.switch_packet.data.stop,
             color_off);
-    endfunction
+    endfunction 
 
 
     // =========================================================================
     //  Final phase: print test result
     // =========================================================================
-    task report();
+    function automatic void report();
         print_test_result(bfm.test_result);
-    endtask
+    endfunction
 
 
     // =========================================================================
