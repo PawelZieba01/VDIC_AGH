@@ -21,11 +21,11 @@ class Shape_c;
         this.points = points;
     endfunction
 
-    // Pure virtual
+    // virtual
     virtual function real get_area();
     endfunction
 
-    function void print();
+    virtual function void print();
         $display("--------------------------------------------------------------------------------");
         $display("This is: %s", name);
         foreach (points[i]) begin
