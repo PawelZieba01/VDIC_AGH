@@ -1,0 +1,105 @@
+TOOL:	xrun(64)	24.09-s005: Started on Nov 16, 2025 at 07:17:49 CET
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		tinyalu_tb_pkg.sv
+		tinyalu_bfm.sv
+		-F ../tb/../../common/tinyalu/tinyalu.f
+			tinyalu_pkg.sv
+			single_cycle.sv
+			three_cycle.sv
+			tinyalu.sv
+		top.sv
+		+incdir+tb_classes
+		+incdir+.
+		+nowarn+DSEMEL
+		-uvm
+		-uvmhome /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
+		+UVM_NO_RELNOTES
+		+UVM_VERBOSITY=MEDIUM
+		-linedebug
+		-fsmdebug
+		-uvmlinedebug
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnSAWSTP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+
+   User defined plus("+") options:
+	+UVM_NO_RELNOTES
+	+UVM_VERBOSITY=MEDIUM
+
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		tinyalu_pkg
+		tinyalu_tb_pkg
+		top
+
+	Extracting FSMs for coverage:
+		worklib.single_cycle
+		worklib.three_cycle
+		worklib.tinyalu
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+		worklib.three_cycle:sv <0x08378048>
+			streams:  13, words:  7668
+		worklib.single_cycle:sv <0x31c680e9>
+			streams:  10, words:  7498
+		worklib.tinyalu:sv <0x5949f293>
+			streams:   8, words:  7369
+		worklib.tinyalu_bfm:sv <0x5497077f>
+			streams: 265, words: 426830
+		worklib.tinyalu_pkg:sv <0x02057d1f>
+			streams:   1, words:  1277
+		worklib.cdns_uvm_pkg:sv <0x5a1a02dc>
+			streams: 251, words: 571997
+		worklib.cdns_uvmapi:svp <0x6bc45e65>
+			streams:  27, words: 46845
+		worklib.cdns_assert2uvm_pkg:sv <0x28ee89b4>
+			streams:   3, words:  3354
+		worklib.uvm_pkg:sv <0x393bf8aa>
+			streams: 6288, words: 15612344
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                        Instances  Unique
+		Modules:                        4       4
+		Interfaces:                     1       1
+		Verilog packages:               6       6
+		Registers:                 15,784  11,634
+		Scalar wires:                  11       -
+		Vectored wires:                 9       -
+		Named events:                   4      12
+		Always blocks:                  3       3
+		Initial blocks:               317     163
+		Parallel blocks:               28      29
+		Cont. assignments:              8       8
+		Pseudo assignments:             6       -
+		Assertions:                     4       4
+		Covergroup Instances:           0       2
+		SV Class declarations:        231     347
+		SV Class specializations:     416     416
+		Simulation timescale:         1ps
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	xrun(64)	24.09-s005: Exiting on Nov 16, 2025 at 07:17:53 CET  (total: 00:00:04)

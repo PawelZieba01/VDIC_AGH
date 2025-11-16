@@ -1,0 +1,4 @@
+IMC(64): 24.03-s001: (c) Copyright 1995-2024 Cadence Design Systems Inc - Simulator version: command - Coverage engine version: 24.09-s005
+imc: *I,RUNLD: Successfully loaded run cov_work/scope/merged_results.
+Starting gui mode
+imc: *I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
