@@ -20,4 +20,7 @@
   <waiver name="SIGNAL_NEVER_USED" severity="DISABLED">
     <match path="/home/student/pzieba/VDIC/common/simple_uart_switch.svp"/>
   </waiver>
+  <waiver name="BUILD_CONFIG" severity="DISABLED">
+    <match path="/home/student/pzieba/VDIC/lab05/tb/tb.f" message="BUILD_CONFIG: $UVM_HOME environment variable not set, falling back to $DVT_UVM_HOME"/>
+  </waiver>
 </waivers>
