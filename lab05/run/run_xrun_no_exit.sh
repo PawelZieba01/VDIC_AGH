@@ -253,6 +253,7 @@ XRUN_ARGS="\
   +nowarnENUMERR \
   +nowarnCOVMLE \
   +nowarnCOVNOEN \
+  +nowarnCNTSUP \
   -xmlibdirname $INCA \
   $GUI \
   +overwrite \
