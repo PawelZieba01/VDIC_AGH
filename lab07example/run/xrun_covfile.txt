@@ -1,0 +1,10 @@
+# enable Constant Object Marking
+set_com -on -log
+
+set_branch_scoring
+set_expr_scoring  -struct -control *
+set_expr_coverable_operators -all -event_or
+set_expr_coverable_statements -all
+
+set_toggle_scoring -sv_enum enable_mda -sv_mda 10 -sv_mda_of_struct
+set_covergroup -new_instance_reporting -per_instance_default_one
