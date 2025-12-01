@@ -1,0 +1,104 @@
+TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 20:51:45 CET
+xrun
+	-elaborate
+	-l xrun_elaborate.log
+	-F ../tb/tb.f
+		../../common/simple_uart_switch.svp
+		fifomult_tb_pkg.sv
+		switch_bfm.sv
+		top.sv
+		+incdir+tb_classes
+		+incdir+.
+		+nowarn+DSEMEL
+		+nowarnBADPRF
+		-uvm
+		-uvmhome /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
+		+UVM_NO_RELNOTES
+		+UVM_VERBOSITY=MEDIUM
+		-linedebug
+		-fsmdebug
+		-uvmlinedebug
+	-v93
+	+nowarnDSEM2009
+	+nowarnDSEMEL
+	+nowarnCGDEFN
+	+nowarnCOVUTA
+	+nowarnBADPRF
+	+nowarnXCLGNOPTM
+	+nowarnRNDXCELON
+	+nowarnCOVEOS
+	+nowarnSAWSTP
+	+nowarnCUVIHR
+	+nowarnIGNFMT
+	+nowarnENUMERR
+	+nowarnCOVMLE
+	+nowarnCOVNOEN
+	+nowarnNAGCST
+	+nowarnCVMTMM
+	+nowarnTSNSPK
+	+nowarnCNTSUP
+	-xmlibdirname INCA_libs
+	+overwrite
+	-nocopyright
+	-coverage all
+	-covoverwrite
+	-covfile xrun_covfile.txt
+
+   User defined plus("+") options:
+	+UVM_NO_RELNOTES
+	+UVM_VERBOSITY=MEDIUM
+
+xmelab: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		fifomult_tb_pkg
+		$unit_0x70562d49
+		top
+
+	Extracting FSMs for coverage:
+		worklib.top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+	Generating native compiled code:
+xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
+		worklib.simple_switch_uart:svp <0x28115085>
+			streams:  33, words: 32354
+		worklib.switch_bfm:sv <0x7b616d7a>
+			streams: 656, words: 1143555
+		worklib.cdns_uvm_pkg:sv <0x6324a5b7>
+			streams: 251, words: 571997
+		worklib.cdns_uvmapi:svp <0x53f59c6f>
+			streams:  27, words: 46845
+		worklib.cdns_assert2uvm_pkg:sv <0x36988333>
+			streams:   3, words:  3354
+		worklib.uvm_pkg:sv <0x3e1450c0>
+			streams: 6288, words: 15612344
+	Building instance specific data structures.
+	Performing constant object marking (COM) analysis.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                        Instances  Unique
+		Modules:                        2       2
+		Interfaces:                     1       1
+		Verilog packages:               5       5
+		Registers:                 16,495  11,773
+		Scalar wires:                  10       -
+		Named events:                   5      13
+		Always blocks:                  4       4
+		Initial blocks:               333     169
+		Parallel blocks:               28      29
+		Cont. assignments:              2       2
+		Pseudo assignments:             6       -
+		Assertions:                     7       7
+		Covergroup Instances:           0       3
+		Compilation units:              1       1
+		SV Class declarations:        239     351
+		SV Class specializations:     444     444
+	Writing initial simulation snapshot: worklib.top:sv
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 20:51:51 CET  (total: 00:00:06)

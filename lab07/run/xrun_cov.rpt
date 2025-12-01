@@ -1,0 +1,5 @@
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
+*E,DRNTFND: Directory 'cov_work/scope/minmax_test' not found. Verify the existence of the specified directory, and rerun the command
+Starting batch mode
+imc> exit
+*I,imc.tool.cov.version.diff: "There is a difference between the IMC tool version 24.03 and the coverage version 24.09-s005"
