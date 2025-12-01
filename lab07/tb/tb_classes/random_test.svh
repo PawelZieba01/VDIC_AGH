@@ -21,12 +21,16 @@ class random_test extends uvm_test;
 //------------------------------------------------------------------------------
     env env_h;
 
+
+    
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------
     function new (string name, uvm_component parent);
         super.new(name,parent);
     endfunction : new
+
+
 
 //------------------------------------------------------------------------------
 // build phase
@@ -35,10 +39,11 @@ class random_test extends uvm_test;
         env_h = env::type_id::create("env_h",this);
     endfunction : build_phase
 
+
+
 //------------------------------------------------------------------------------
 // end-of-elaboration phase
 //------------------------------------------------------------------------------
-
     function void end_of_elaboration_phase(uvm_phase phase);
         command_transaction tmp;               // transaction object to check the type generated
 

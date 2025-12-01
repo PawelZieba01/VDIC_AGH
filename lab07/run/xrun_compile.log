@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 20:51:43 CET
+TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 21:33:40 CET
 xrun
 	-compile
 	-l xrun_compile.log
@@ -14,7 +14,7 @@ xrun
 		-uvm
 		-uvmhome /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
 		+UVM_NO_RELNOTES
-		+UVM_VERBOSITY=MEDIUM
+		+UVM_VERBOSITY=HIGH
 		-linedebug
 		-fsmdebug
 		-uvmlinedebug
@@ -46,7 +46,7 @@ xrun
 
    User defined plus("+") options:
 	+UVM_NO_RELNOTES
-	+UVM_VERBOSITY=MEDIUM
+	+UVM_VERBOSITY=HIGH
 
 Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
 xmvlog: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
@@ -66,4 +66,4 @@ file: ../tb/top.sv
 xmvlog: *W,SPDUSD: Include directory ../tb/. given but not used.
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 2
-TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 20:51:45 CET  (total: 00:00:02)
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 21:33:41 CET  (total: 00:00:01)

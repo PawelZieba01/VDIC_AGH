@@ -3,7 +3,7 @@
 // Do not modify this file
 //
 +UVM_NO_RELNOTES
-+UVM_VERBOSITY=MEDIUM
++UVM_VERBOSITY=HIGH
 +incdir+tb_classes
 +incdir+.
 +nowarn+DSEMEL

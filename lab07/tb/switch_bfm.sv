@@ -5,9 +5,10 @@
 //  the verification components. It acts as a central hub for communication.
 // ============================================================================
 
-import fifomult_tb_pkg::*;
-interface switch_bfm();
 
+interface switch_bfm();
+    import fifomult_tb_pkg::*;
+    import uvm_pkg::*;
     command_monitor command_monitor_h;
     result_monitor result_monitor_h;
     
@@ -17,22 +18,15 @@ interface switch_bfm();
     logic rst_n; 
     logic prog;
     logic sin;
-    logic sout0;
+    logic sout0; 
     logic sout1;  
 
     int timeout_counter;
   
-
     mailbox #(command_transaction) drv2mon_mb;  // Generator → Coverage
 
     // Synchronization event for monitor start
     event result_monitor_start_evt;
-
-    // Shared state: programming packet counter + routing table
-    int unsigned prog_pkt_count;
-
-    // Debug flag (used to enable verbose logs)
-    logic debug;
 
 
     // ------------------------------------------------------------------------
@@ -95,18 +89,14 @@ interface switch_bfm();
     //--------------------------------------------------------------------------
     task automatic reset_dut();
     begin
-        `ifdef DEBUG
-        $display("[%0t] [DRV] ----------- DUT reset start -----------", $time);
-        `endif
+        `uvm_info("BFM", $sformatf("Asserting DUT reset."), UVM_LOW)
 
         bfm.rst_n = 0;
         repeat(CLKS_PER_BIT) @(posedge bfm.clk);
         bfm.rst_n = 1;
         repeat(CLKS_PER_BIT) @(posedge bfm.clk);
 
-        `ifdef DEBUG
-        $display("[%0t] [DRV] ----------- DUT reset done -----------", $time);
-        `endif
+        `uvm_info("BFM", $sformatf("DUT reset completed."), UVM_LOW)
     end
     endtask
 
@@ -149,6 +139,8 @@ interface switch_bfm();
 
 
 
+
+
 //------------------------------------------------------------------------------
 // write command monitor
 //------------------------------------------------------------------------------
@@ -169,13 +161,7 @@ end : op_monitor
 initial begin : result_monitor_thread
     uart_transaction_t tr0, tr1, tr;
         
-    // Czekamy na start monitorowania
     @(bfm.result_monitor_start_evt);
-    //repeat(2) @(posedge bfm.clk);  // minimalne odczekanie na ustabilizowanie
-
-    `ifdef DEBUG
-        $display("[%0t] MONITOR STARTED", $time);
-    `endif
 
     forever begin
         fork
@@ -205,13 +191,10 @@ initial begin : result_monitor_thread
                     @(posedge bfm.clk);
                     timeout_counter++;
                     if(timeout_counter >= 22*CLKS_PER_BIT) begin
-                        `ifdef DEBUG
-                            $display("[%0t] MONITOR TIMEOUT - sending empty packet", $time);
-                        `endif
+                        `uvm_info("BFM", $sformatf("Timeout occurred while waiting for UART frames on both ports."), UVM_HIGH)
                         tr1 = '{default:0};
                         tr1.empty_packet = 1'b1;
                         tr1.port = SOUTX;
-                        //bfm.mon2sb_mb.put(tr1);
                         tr = tr1;
                         break;
                     end
@@ -250,34 +233,11 @@ end : result_monitor_thread
         switch_packet_t pkt;
 
         uart_capture_frame(sout, pkt.addr);
-        // `ifdef DEBUG
-        //     $display("[%0t] [MON] %s ADDR = 0x%02h",$time, name, pkt.addr);
-        // `endif
-
         uart_capture_frame(sout, pkt.data);
-        // `ifdef DEBUG
-        //     $display("[%0t] [MON] %s DATA = 0x%02h",$time, name, pkt.data);
-        // `endif
 
         tr.switch_packet = pkt;
-        //tr.prog = 0; 
-        //tr.valid = (status == UART_OK) ? 1'b1 : 1'b0;
         tr.empty_packet = 1'b0;
-        //tr.finish_sim = 1'b0;
     endtask
-
-    // // =========================================================================
-    // // UART frame decoding
-    // // =========================================================================
-    // function automatic uart_status_t decode_uart_frame(input uart_frame_t frame, output byte data);
-    //     uart_status_t status = UART_OK;
-    //     data = 8'h00;
-    //     if(frame.start !== 0) status = UART_START_ERR;
-    //     data = frame.data;
-    //     if(frame.parity !== (^frame.data)) status = UART_PARITY_ERR;
-    //     if(frame.stop !== 1) status = UART_STOP_ERR;
-    //     return status;
-    // endfunction
 
 
 endinterface : switch_bfm

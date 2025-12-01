@@ -19,7 +19,6 @@ class command_transaction extends uvm_transaction;
 //------------------------------------------------------------------------------
 // transaction variables
 //------------------------------------------------------------------------------
-
     rand byte unsigned data;
     rand byte unsigned addr;
     uart_port_t port;
@@ -28,10 +27,12 @@ class command_transaction extends uvm_transaction;
     rand bit start_bit_valid;
     
     operation_t op;
+
+
+
 //------------------------------------------------------------------------------
 // constraints
 //------------------------------------------------------------------------------
-
     constraint c_data_addr {
         data dist { 8'h00 := 2, [8'h01:8'hFE] := 1, 8'hFF := 2 };
         addr dist { 8'h00 := 2, [8'h01:8'hFE] := 1, 8'hFF := 2 };
@@ -43,6 +44,8 @@ class command_transaction extends uvm_transaction;
         start_bit_valid  dist { 1 := 10, 0 := 0 };  
     }
     
+
+
 //------------------------------------------------------------------------------
 // transaction functions: do_copy, clone_me, do_compare, convert2string
 //------------------------------------------------------------------------------
@@ -64,24 +67,22 @@ class command_transaction extends uvm_transaction;
         parity_bit_valid    = copied_transaction_h.parity_bit_valid;
         start_bit_valid     = copied_transaction_h.start_bit_valid;
         op                  = copied_transaction_h.op;
-
     endfunction : do_copy
 
 
+
     function command_transaction clone_me();
-        
         command_transaction clone;
         uvm_object tmp;
 
         tmp = this.clone();
         $cast(clone, tmp);
         return clone;
-        
     endfunction : clone_me
 
 
+
     function bit do_compare(uvm_object rhs, uvm_comparer comparer);
-        
         command_transaction compared_transaction_h;
         bit same;
 
@@ -97,8 +98,8 @@ class command_transaction extends uvm_transaction;
             (compared_transaction_h.port == port);
 
         return same;
-        
     endfunction : do_compare
+
 
 
     function string convert2string();
@@ -107,6 +108,8 @@ class command_transaction extends uvm_transaction;
         return s;
     endfunction : convert2string
 
+
+    
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------

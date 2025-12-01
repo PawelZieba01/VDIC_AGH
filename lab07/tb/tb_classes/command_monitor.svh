@@ -22,6 +22,8 @@ class command_monitor extends uvm_component;
     protected virtual switch_bfm bfm;
     uvm_analysis_port #(command_transaction) ap;
 
+
+
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------
@@ -29,18 +31,21 @@ class command_monitor extends uvm_component;
         super.new(name,parent);
     endfunction
 
+
+
 //------------------------------------------------------------------------------
 // monitoring function called from BFM
 //------------------------------------------------------------------------------
-
     function void write_to_monitor(command_transaction cmd);
         `ifdef DEBUG
             if (cmd.op == normal_op)
-                `uvm_info("COMMAND MONITOR", $sformatf("addr: %0h, data: %0h, port: %s" , cmd.addr, cmd.data, cmd.port.name()), UVM_LOW);
+                `uvm_info("COMMAND MONITOR", $sformatf("addr: %0h, data: %0h, port: %s" , cmd.addr, cmd.data, cmd.port.name()), UVM_MEDIUM);
         `endif
         ap.write(cmd);
     endfunction : write_to_monitor
 
+
+    
 //------------------------------------------------------------------------------
 // build phase
 //------------------------------------------------------------------------------

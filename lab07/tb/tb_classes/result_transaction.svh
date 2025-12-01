@@ -43,11 +43,15 @@ class result_transaction extends uvm_transaction;
         result = copied_transaction_h.result;
     endfunction : do_copy
 
+
+    
     function string convert2string();
         string s;
         s = $sformatf("result: addr: 0x%2h  data: 0x%2h  stop_bit_valid: 0b%b  parity_bit_valid: 0b%b  port: %s", result.switch_packet.addr, result.switch_packet.data, result.valid_stop, result.valid_parity, result.port.name());
         return s;
     endfunction : convert2string
+
+
 
     function bit do_compare(uvm_object rhs, uvm_comparer comparer);
         result_transaction RHS;

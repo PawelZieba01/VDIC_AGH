@@ -27,6 +27,8 @@ class env extends uvm_env;
     result_monitor result_monitor_h;
     uvm_tlm_fifo #(command_transaction) command_f;
 
+
+
 //------------------------------------------------------------------------------
 // build phase
 //------------------------------------------------------------------------------
@@ -41,6 +43,7 @@ class env extends uvm_env;
     endfunction : build_phase
 
 
+
 //------------------------------------------------------------------------------
 // connect phase
 //------------------------------------------------------------------------------
@@ -51,6 +54,8 @@ class env extends uvm_env;
         command_monitor_h.ap.connect(scoreboard_h.cmd_f.analysis_export);
         result_monitor_h.ap.connect(scoreboard_h.analysis_export);
     endfunction : connect_phase
+
+
 
 //------------------------------------------------------------------------------
 // end-of-elaboration phase
@@ -66,16 +71,15 @@ class env extends uvm_env;
 
     endfunction : end_of_elaboration_phase
  
+
+
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------
     function new (string name, uvm_component parent);
         super.new(name,parent);
     endfunction : new
-
-
     
-
 endclass
 
 

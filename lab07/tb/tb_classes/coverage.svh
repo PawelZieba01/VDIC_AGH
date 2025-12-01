@@ -19,6 +19,7 @@ class coverage extends uvm_subscriber #(command_transaction);
         }
     endgroup
 
+
     covergroup routing_data_cov;
         option.name = "cg_routing_and_data";
 
@@ -48,12 +49,15 @@ class coverage extends uvm_subscriber #(command_transaction);
         }
     endgroup
 
+
     function new(string name, uvm_component parent);
         super.new(name, parent);
         address_cov      = new();
         routing_data_cov = new();
         reset_cov        = new();
     endfunction
+
+
 
 //------------------------------------------------------------------------------
 // subscriber write function
@@ -68,9 +72,9 @@ class coverage extends uvm_subscriber #(command_transaction);
         address_cov.sample();
         routing_data_cov.sample();
         reset_cov.sample();
-
     endfunction : write
 
+    
     
     function void report();
         $display("============================================================");

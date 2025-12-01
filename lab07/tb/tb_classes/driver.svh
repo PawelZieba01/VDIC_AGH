@@ -22,12 +22,16 @@ class driver extends uvm_component;
     protected virtual switch_bfm bfm;
     uvm_get_port #(command_transaction) command_port;
     
+
+
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------
     function new (string name, uvm_component parent);
         super.new(name, parent);
     endfunction : new
+
+
 
 //------------------------------------------------------------------------------
 // build phase
@@ -38,29 +42,20 @@ class driver extends uvm_component;
         command_port = new("command_port",this);
     endfunction : build_phase
     
+
+
 //------------------------------------------------------------------------------
 // run phase
 //------------------------------------------------------------------------------
     task run_phase(uvm_phase phase);
         command_transaction command;
-        //uart_transaction_t tr;
 
         forever begin : command_loop
             command_port.get(command);
-            `ifdef DEBUG
-                `uvm_info("DRIVER",$sformatf("Got command: %s",command.convert2string()),UVM_LOW)
-            `endif
-            //tu trzeba przygotować pakiet do wysłania na podstawie danych w command
-            // tr.switch_packet.data = command.data;
-            // tr.switch_packet.addr = command.addr;
-            // tr.port = command.port;
-            // tr.valid_start = command.start_bit_valid;
-            // tr.valid_parity = command.parity_valid;
-            // tr.valid_stop = command.stop_bit_valid;
+
             bfm.drive_dut(command);                            
         end : command_loop
     endtask : run_phase
     
-
 endclass : driver
 

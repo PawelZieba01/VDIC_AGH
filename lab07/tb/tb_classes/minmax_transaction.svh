@@ -21,8 +21,10 @@ class minmax_transaction extends command_transaction;
 //------------------------------------------------------------------------------
 
     constraint addr_minmax {
-        addr inside {8'h00, 8'hFF};
+        addr inside {8'h00, 8'hFF}; 
 }
+
+
 
 //------------------------------------------------------------------------------
 // constructor

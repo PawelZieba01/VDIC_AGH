@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 20:51:45 CET
+TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 21:33:41 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -14,7 +14,7 @@ xrun
 		-uvm
 		-uvmhome /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
 		+UVM_NO_RELNOTES
-		+UVM_VERBOSITY=MEDIUM
+		+UVM_VERBOSITY=HIGH
 		-linedebug
 		-fsmdebug
 		-uvmlinedebug
@@ -46,7 +46,7 @@ xrun
 
    User defined plus("+") options:
 	+UVM_NO_RELNOTES
-	+UVM_VERBOSITY=MEDIUM
+	+UVM_VERBOSITY=HIGH
 
 xmelab: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		Caching library 'worklib' ....... Done
@@ -57,7 +57,6 @@ xmelab: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		cdns_assert2uvm_pkg
 		cdns_uvm_pkg
 		fifomult_tb_pkg
-		$unit_0x70562d49
 		top
 
 	Extracting FSMs for coverage:
@@ -67,17 +66,17 @@ xmelab: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 	Enabling instrumentation for coverage types: block expression FSM toggle functional
 	Generating native compiled code:
 xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
-		worklib.simple_switch_uart:svp <0x28115085>
+		worklib.simple_switch_uart:svp <0x63ee0e32>
 			streams:  33, words: 32354
-		worklib.switch_bfm:sv <0x7b616d7a>
-			streams: 656, words: 1143555
-		worklib.cdns_uvm_pkg:sv <0x6324a5b7>
+		worklib.switch_bfm:sv <0x1fca8db6>
+			streams: 654, words: 1147951
+		worklib.cdns_uvm_pkg:sv <0x27323bb9>
 			streams: 251, words: 571997
-		worklib.cdns_uvmapi:svp <0x53f59c6f>
+		worklib.cdns_uvmapi:svp <0x30062f3b>
 			streams:  27, words: 46845
-		worklib.cdns_assert2uvm_pkg:sv <0x36988333>
+		worklib.cdns_assert2uvm_pkg:sv <0x2530206d>
 			streams:   3, words:  3354
-		worklib.uvm_pkg:sv <0x3e1450c0>
+		worklib.uvm_pkg:sv <0x07582431>
 			streams: 6288, words: 15612344
 	Building instance specific data structures.
 	Performing constant object marking (COM) analysis.
@@ -87,7 +86,7 @@ xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		Modules:                        2       2
 		Interfaces:                     1       1
 		Verilog packages:               5       5
-		Registers:                 16,495  11,773
+		Registers:                 16,488  11,766
 		Scalar wires:                  10       -
 		Named events:                   5      13
 		Always blocks:                  4       4
@@ -97,8 +96,7 @@ xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		Pseudo assignments:             6       -
 		Assertions:                     7       7
 		Covergroup Instances:           0       3
-		Compilation units:              1       1
 		SV Class declarations:        239     351
 		SV Class specializations:     444     444
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 20:51:51 CET  (total: 00:00:06)
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 21:33:47 CET  (total: 00:00:06)

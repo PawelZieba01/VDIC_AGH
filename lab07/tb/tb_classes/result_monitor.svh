@@ -22,12 +22,16 @@ class result_monitor extends uvm_component;
     protected virtual switch_bfm bfm;
     uvm_analysis_port #(result_transaction) ap;
 
+
+
 //------------------------------------------------------------------------------
 // constructor
 //------------------------------------------------------------------------------
     function new (string name, uvm_component parent);
         super.new(name, parent);
     endfunction : new
+
+
 
 //------------------------------------------------------------------------------
 // monitoring function called from BFM
@@ -36,7 +40,7 @@ class result_monitor extends uvm_component;
         result_transaction result_t;
         `ifdef DEBUG
         `uvm_info("RESULT MONITOR", $sformatf("addr: %0h, data: %0h port: %s, empty_packet: %0b",
-                  tr.switch_packet.addr, tr.switch_packet.data, tr.port.name(), tr.empty_packet), UVM_LOW);
+                  tr.switch_packet.addr, tr.switch_packet.data, tr.port.name(), tr.empty_packet), UVM_MEDIUM);
         `endif
         
         result_t = new("result_t");
@@ -44,6 +48,8 @@ class result_monitor extends uvm_component;
         ap.write(result_t);
     endfunction : write_to_monitor
 
+
+    
 //------------------------------------------------------------------------------
 // build phase
 //------------------------------------------------------------------------------

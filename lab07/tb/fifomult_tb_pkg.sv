@@ -41,9 +41,6 @@ package fifomult_tb_pkg;
         byte unsigned data;
     } switch_packet_t;
 
-    // Status enumerations for UART frame integrity
-    typedef enum {UART_OK, UART_PARITY_ERR, UART_START_ERR, UART_STOP_ERR} uart_status_t;
-
     // Output port identifiers
     typedef enum byte unsigned {SOUT0, SOUT1, SOUTX} uart_port_t;
 
@@ -56,20 +53,13 @@ package fifomult_tb_pkg;
     // UART transaction object exchanged between TB components
     typedef struct {
         switch_packet_t  switch_packet;
-        //bit              prog;           // programming transaction
-        //bit              valid;          // expected to be valid?
         bit              valid_start; // valid start bit
         bit              valid_parity;
         bit              valid_stop;
         bit              empty_packet;   // monitor saw nothing
-        //bit              finish_sim;     // end-of-sim signal
         uart_port_t      port;           // expected output port
     } uart_transaction_t;
 
-    typedef struct {
-        uart_transaction_t tr;
-        operation_t        op;
-    } command_s;
 
     function void set_print_color ( print_color_t c );
         string ctl;
@@ -81,7 +71,7 @@ package fifomult_tb_pkg;
             COLOR_BLUE_ON_WHITE       : ctl  = "\033\[0;34m\033\[107m";
             COLOR_DEFAULT             : ctl  = "\033\[0m";
             default : begin
-                $error("set_print_color: invalid color code");
+                `uvm_warning("PKG", "set_print_color: invalid color code")
                 ctl = "";
             end
         endcase
