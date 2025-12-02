@@ -1,2 +1,0 @@
-SOFTINCLUDE /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/inca/files/cds.lib
-define worklib ../worklib

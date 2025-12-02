@@ -1,7 +1,0 @@
-[INFO ] 2025-12-01 14:42:46 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 41591
-[ERROR] 2025-12-01 14:42:46 [com.cadence.mdv.messaging.MDVASynchronicMessaging] [frontend-pool-1] - Directory 'cov_work/scope/minmax_test' not found. Verify the existence of the specified directory, and rerun the command
-[INFO ] 2025-12-01 20:13:37 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 35290
-[INFO ] 2025-12-01 20:13:43 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 41447
-[INFO ] 2025-12-01 20:35:51 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 43695
-[INFO ] 2025-12-01 20:35:57 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 36705
-[INFO ] 2025-12-01 20:36:17 [com.cadence.mdv.imc.Main] [main] - Binding debug tools http on port: 37937

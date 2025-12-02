@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 21:35:42 CET
+TOOL:	xrun(64)	24.09-s005: Started on Dec 02, 2025 at 17:42:33 CET
 xrun
 	-F ../tb/tb.f
 		../../common/simple_uart_switch.svp
@@ -41,7 +41,6 @@ xrun
 	-coverage all
 	-covoverwrite
 	-covfile xrun_covfile.txt
-	-covtest minmax_test
 	+UVM_TESTNAME=minmax_test
 	-l xrun_test_minmax_test.log
 
@@ -59,31 +58,31 @@ UVM_INFO @ 0: reporter [RNTST] Running test minmax_test...
 [0;34m[107m----------------------------------------------------------------
 Name                     Type                        Size  Value
 ----------------------------------------------------------------
-uvm_test_top             minmax_test                 -     @1663
-  env_h                  env                         -     @1733
-    command_f            uvm_tlm_fifo #(T)           -     @1763
-      get_ap             uvm_analysis_port           -     @1968
-      get_peek_export    uvm_get_peek_imp            -     @1868
-      put_ap             uvm_analysis_port           -     @1918
-      put_export         uvm_put_imp                 -     @1816
-    command_monitor_h    command_monitor             -     @2001
-      ap                 uvm_analysis_port           -     @2315
-    coverage_h           coverage                    -     @2094
-      analysis_imp       uvm_analysis_imp            -     @2144
-    driver_h             driver                      -     @2063
-      command_port       uvm_get_port                -     @2369
-    result_monitor_h     result_monitor              -     @2178
-      ap                 uvm_analysis_port           -     @2420
-    scoreboard_h         scoreboard                  -     @2209
-      analysis_imp       uvm_analysis_imp            -     @2258
-      cmd_f              uvm_tlm_analysis_fifo #(T)  -     @2451
-        analysis_export  uvm_analysis_imp            -     @2700
-        get_ap           uvm_analysis_port           -     @2649
-        get_peek_export  uvm_get_peek_imp            -     @2551
-        put_ap           uvm_analysis_port           -     @2600
-        put_export       uvm_put_imp                 -     @2502
-    tpgen_h              tpgen                       -     @2032
-      command_port       uvm_put_port                -     @2757
+uvm_test_top             minmax_test                 -     @1661
+  env_h                  env                         -     @1731
+    command_f            uvm_tlm_fifo #(T)           -     @1761
+      get_ap             uvm_analysis_port           -     @1966
+      get_peek_export    uvm_get_peek_imp            -     @1866
+      put_ap             uvm_analysis_port           -     @1916
+      put_export         uvm_put_imp                 -     @1814
+    command_monitor_h    command_monitor             -     @1999
+      ap                 uvm_analysis_port           -     @2313
+    coverage_h           coverage                    -     @2092
+      analysis_imp       uvm_analysis_imp            -     @2142
+    driver_h             driver                      -     @2061
+      command_port       uvm_get_port                -     @2367
+    result_monitor_h     result_monitor              -     @2176
+      ap                 uvm_analysis_port           -     @2418
+    scoreboard_h         scoreboard                  -     @2207
+      analysis_imp       uvm_analysis_imp            -     @2256
+      cmd_f              uvm_tlm_analysis_fifo #(T)  -     @2449
+        analysis_export  uvm_analysis_imp            -     @2698
+        get_ap           uvm_analysis_port           -     @2647
+        get_peek_export  uvm_get_peek_imp            -     @2549
+        put_ap           uvm_analysis_port           -     @2598
+        put_export       uvm_put_imp                 -     @2500
+    tpgen_h              tpgen                       -     @2030
+      command_port       uvm_put_port                -     @2755
 ----------------------------------------------------------------
 [0m[1;30m[103mUVM_INFO ../tb/tb_classes/random_test.svh(60) @ 0: uvm_test_top [COMMAND TRANSACTION] minmax_transaction
 [0mUVM_INFO ../tb/switch_bfm.sv(92) @ 0: reporter [BFM] Asserting DUT reset.
@@ -37309,15 +37308,15 @@ UVM_FATAL :    0
 Simulation complete via $finish(1) at time 36990150 NS + 59
 /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
 xcelium> exit
-See ./cov_work/scope/minmax_test/icc.com file for message(s) on coverage constant object marking
+See ./cov_work/scope/test/icc.com file for message(s) on coverage constant object marking
 
 coverage setup:
   workdir  :  ./cov_work
   dutinst  :  top(top)
   scope    :  scope
-  testname :  minmax_test
+  testname :  test
 
 coverage files:
   model(design data) :  ./cov_work/scope/icc_3b4a3d88_6774d41e.ucm (reused)
-  data               :  ./cov_work/scope/minmax_test/icc_3b4a3d88_6774d41e.ucd
-TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 21:35:46 CET  (total: 00:00:04)
+  data               :  ./cov_work/scope/test/icc_3b4a3d88_6774d41e.ucd
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 02, 2025 at 17:42:36 CET  (total: 00:00:03)

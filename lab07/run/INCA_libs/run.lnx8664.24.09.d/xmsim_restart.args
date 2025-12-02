@@ -76,8 +76,6 @@ TSNSPK
 CNTSUP
 -NOCOPYRIGHT
 -COVOVERWRITE
--COVTEST
-minmax_test
 +UVM_TESTNAME=minmax_test
 -MESSAGES
 -RUN
@@ -86,7 +84,7 @@ minmax_test
 +EMGRLOG
 xrun_test_minmax_test.log
 -XLSTIME
-1764621342
+1764693753
 -XLKEEP
 -XLMODE
 ./INCA_libs/run.lnx8664.24.09.d
@@ -100,4 +98,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	24.09-s005"
 -XLNAME
-./INCA_libs/run.lnx8664.24.09.d/cadence31_6317
+./INCA_libs/run.lnx8664.24.09.d/cadence33_24173
