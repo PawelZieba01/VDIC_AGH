@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 21:33:41 CET
+TOOL:	xrun(64)	24.09-s005: Started on Dec 01, 2025 at 21:35:33 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -99,4 +99,4 @@ xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		SV Class declarations:        239     351
 		SV Class specializations:     444     444
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 21:33:47 CET  (total: 00:00:06)
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 01, 2025 at 21:35:38 CET  (total: 00:00:05)

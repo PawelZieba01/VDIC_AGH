@@ -3,7 +3,7 @@
 *I,MERGL1: Merging Simulation Coverage ...
 ----------------------------
 *I,MERGL1: Preparing target model ...
-*I,MERGL1: Reading model of primary run (cov_work/scope/random_test) as initial model: cov_work/scope/icc_21068621_4220979e.ucm
+*I,MERGL1: Reading model of primary run (cov_work/scope/random_test) as initial model: cov_work/scope/icc_3b4a3d88_6774d41e.ucm
 *I,MERGL1: Target model generated successfully.
 *I,MERGL1: Projecting Simulation ucd data into the target model ...
 *I,MERGL2:   cov_work/scope/random_test:
@@ -11,8 +11,8 @@
 *I,MERGL2:   cov_work/scope/minmax_test:
 *I,MERGL3:       Data is projected in to the target model.
 *I,MERGL1: Writing output database cov_work/scope/merged_results:
-*I,MERGL2:   Model: cov_work/scope/merged_results/icc_21068621_4220979e.ucm
-*I,MERGL2:   Data : cov_work/scope/merged_results/icc_21068621_4220979e.ucd
+*I,MERGL2:   Model: cov_work/scope/merged_results/icc_3b4a3d88_6774d41e.ucm
+*I,MERGL2:   Data : cov_work/scope/merged_results/icc_3b4a3d88_6774d41e.ucd
 *I,MERGL1: No Specman coverage databases found in the runs.
 Total conflicts during target model creation: 0
 Total items not merged                      : 0
@@ -28,5 +28,5 @@ uvm_pkg                                  n/a                  n/a               
 | |--env_h                               n/a                  n/a                  n/a                  n/a                  n/a                  n/a                  n/a                  n/a                  
 | | |--coverage_h                        100.00%              100.00% (775/775)    n/a                  n/a                  n/a                  n/a                  100.00%              100.00% (775/775)    
 top                                      100.00%              100.00% (2/2)        100.00%              100.00% (2/2)        n/a                  n/a                  n/a                  n/a                  
-|--bfm                                   96.82%               95.65% (88/92)       96.82%               95.65% (88/92)       n/a                  n/a                  n/a                  n/a                  
+|--bfm                                   95.70%               93.14% (95/102)      95.70%               93.14% (95/102)      n/a                  n/a                  n/a                  n/a                  
 |--dut                                   100.00%              100.00% (6/6)        100.00%              100.00% (6/6)        n/a                  n/a                  n/a                  n/a                  

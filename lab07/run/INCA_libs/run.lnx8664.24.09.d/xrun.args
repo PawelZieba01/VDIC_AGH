@@ -32,6 +32,8 @@ all
 -covoverwrite
 -covfile
 xrun_covfile.txt
+-covtest
+minmax_test
 +UVM_TESTNAME=minmax_test
 -l
 xrun_test_minmax_test.log
