@@ -5,7 +5,7 @@
 -INPUT
 "@source /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv/files/tcl/uvm_sim.tcl"
 +UVM_NO_RELNOTES
-+UVM_VERBOSITY=HIGH
++UVM_VERBOSITY=NONE
 +incdir+tb_classes
 +incdir+.
 +nowarn+DSEMEL
@@ -84,7 +84,7 @@ CNTSUP
 +EMGRLOG
 xrun_test_minmax_test.log
 -XLSTIME
-1764693753
+1765298175
 -XLKEEP
 -XLMODE
 ./INCA_libs/run.lnx8664.24.09.d
@@ -98,4 +98,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	24.09-s005"
 -XLNAME
-./INCA_libs/run.lnx8664.24.09.d/cadence33_24173
+./INCA_libs/run.lnx8664.24.09.d/cadence33_21812

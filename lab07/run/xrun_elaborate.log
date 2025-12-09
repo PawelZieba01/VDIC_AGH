@@ -1,4 +1,4 @@
-TOOL:	xrun(64)	24.09-s005: Started on Dec 02, 2025 at 17:42:23 CET
+TOOL:	xrun(64)	24.09-s005: Started on Dec 09, 2025 at 17:36:06 CET
 xrun
 	-elaborate
 	-l xrun_elaborate.log
@@ -14,7 +14,7 @@ xrun
 		-uvm
 		-uvmhome /eda/cadence/2024-25/RHELx86/XCELIUM_24.09.005/tools/methodology/UVM/CDNS-1.2/sv
 		+UVM_NO_RELNOTES
-		+UVM_VERBOSITY=HIGH
+		+UVM_VERBOSITY=NONE
 		-linedebug
 		-fsmdebug
 		-uvmlinedebug
@@ -46,7 +46,7 @@ xrun
 
    User defined plus("+") options:
 	+UVM_NO_RELNOTES
-	+UVM_VERBOSITY=HIGH
+	+UVM_VERBOSITY=NONE
 
 xmelab: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		Caching library 'worklib' ....... Done
@@ -99,4 +99,4 @@ xmvlog_cg: *W,CNTSUP: Error 'CVMTMM' cannot be suppressed.
 		SV Class declarations:        239     351
 		SV Class specializations:     444     444
 	Writing initial simulation snapshot: worklib.top:sv
-TOOL:	xrun(64)	24.09-s005: Exiting on Dec 02, 2025 at 17:42:28 CET  (total: 00:00:05)
+TOOL:	xrun(64)	24.09-s005: Exiting on Dec 09, 2025 at 17:36:12 CET  (total: 00:00:06)
